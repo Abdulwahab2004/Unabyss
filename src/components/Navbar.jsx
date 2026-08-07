@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { ArrowUpRight, ChevronUp, ChevronDown, LogIn } from 'lucide-react'
+import SpotlightContainer from './SpotLightContainer'
+import Spotlight from './SpotLight'
 
 const USE_CASES = [
   { label: 'Founders', desc: 'AI that knows your company', href: '/unabyss-for-founders' },
@@ -12,6 +14,7 @@ const NAV_LINKS = [
   { label: 'How it works', href: '/how-it-works' },
   { label: 'Teams', href: '/teams' },
   { label: 'Pricing', href: '/pricing' },
+  {label:"Log in" , href : '/login' }
 ]
 
 export default function Navbar() {
@@ -52,82 +55,136 @@ export default function Navbar() {
         scrolled ? 'bg-bg/80 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <nav className="w-full flex items-center justify-between px-8 py-5">
+      <nav className="w-full flex items-center justify-between px-35 py-5">
         {/* LOGO — far left */}
+         <SpotlightContainer className="flex items-center gap-1 bg-badge bg-[#1d1d1d] border border-white/5 rounded-full pl-2">
         <a
           href="/"
-          className="flex items-center gap-2.5 bg-badge border border-white/10 rounded-full pl-3 pr-5 py-2 shrink-0"
+          className="flex items-center gap-2.5 bg-badge rounded-full pl-3 pr-5 py-2 shrink-0"
         >
           <div className="grid grid-cols-3 gap-[3px]" aria-hidden="true">
             {Array.from({ length: 9 }).map((_, i) => (
               <span key={i} className="w-[3px] h-[3px] rounded-full bg-white/70" />
             ))}
           </div>
-          <span className="font-bold text-sm tracking-[0.15em]">UNABYSS</span>
+          <span className="font-bold text-sm tracking-[0.4em] font-extralight text-white/80">UNABYSS</span>
         </a>
-
+</SpotlightContainer>
         {/* RIGHT CLUSTER — nav pill + log in + try now, all grouped right */}
-        <div className="hidden lg:flex items-center gap-6 shrink-0">
-          <div className="flex items-center gap-1 bg-badge border border-white/10 rounded-full px-2 py-2">
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setUseCasesOpen((o) => !o)}
-                aria-expanded={useCasesOpen}
-                aria-haspopup="true"
-                className="flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors px-4 py-2"
-              >
-                Use cases
-                {useCasesOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-              </button>
+        
+        <div className=" lg:flex items-center gap-6 shrink-0">
+         <SpotlightContainer
+  className="
+    relative
+    flex items-center 
+    bg-[#1d1d1d]
+    border border-white/5
+    rounded-full
+    px-1 py-0.5
+    mt-1
+  "
+>
+  <div className="relative" ref={dropdownRef}>
+    <button
+      onClick={() => setUseCasesOpen((o) => !o)}
+      aria-expanded={useCasesOpen}
+      aria-haspopup="true"
+      className="flex items-center gap-1.5 text-xs text-white/60 hover:text-white transition-colors px-4 py-2"
+    >
+      Use cases
 
-              {useCasesOpen && (
-                <div
-                  role="menu"
-                  className="absolute top-full left-0 mt-3 w-[420px] bg-badge border border-white/10 rounded-2xl shadow-2xl overflow-hidden animate-fade-up"
-                >
-                  {USE_CASES.map((item, i) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      role="menuitem"
-                      className={`flex items-center justify-between px-6 py-4 hover:bg-white/5 transition-colors ${
-                        i !== USE_CASES.length - 1 ? 'border-b border-white/5' : ''
-                      }`}
-                    >
-                      <span className="font-semibold text-white">{item.label}</span>
-                      <span className="text-sm text-white/40">{item.desc}</span>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
 
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-white/80 hover:text-white transition-colors px-4 py-2"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+      {useCasesOpen ? (
+        <ChevronUp size={14} />
+      ) : (
+        <ChevronDown size={14} />
+      )}
+    </button>
 
-          <a
-            href="/login"
-            className="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors"
-          >
-            Log in
-            <LogIn size={14} />
-          </a>
+  
+ {useCasesOpen && (
+
+   <div
+   role="menu"
+   className="
+   absolute
+   top-full
+   left-0
+   mt-3
+   w-[500px]
+   z-[100]
+   rounded-[24px]
+   border border-white/10
+   bg-[#1d1d1d]/70 
+   backdrop-blur-sm
+   
+   
+   shadow-2xl
+   overflow-hidden
+   animate-fade-up
+   "
+   >
+   
+
+    <SpotlightContainer className="relative">
+      {USE_CASES.map((item) => (
+        <a
+        key={item.href}
+        href={item.href}
+        role="menuitem"
+        className="
+        group
+        flex
+        items-center
+        justify-between
+        px-5
+        py-2
+        rounded-xl
+        transition-colors
+        hover:bg-white/[0.04]
+        
+        "
+        >
+          <span className="text-xs font-semibold text-white/60">
+            {item.label}
+          </span>
+
+          <span className="text-xs font-light text-white/45">
+            {item.desc}
+          </span>
+        </a>
+      ))}
+    </SpotlightContainer>
+      
+  </div>
+      
+)}
+  </div>
+
+  {NAV_LINKS.map((link) => (
+    <a
+      key={link.href}
+      href={link.href}
+      className="text-xs text-white/60 hover:text-white transition-colors px-4 py-2"
+    >
+      {link.label}
+    </a>
+  ))}
+
+ <LogIn size={24} className='text-white/70 pr-3' />
+</SpotlightContainer>
+         
+           
+            
+         
 
           <a
             href="/register"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm font-semibold bg-white text-black pl-4 pr-3.5 py-2.5 rounded-full hover:bg-white/90 transition-colors"
+            className="flex items-center gap-1 text-[0.7rem] font-semibold bg-white text-black pl-4 pr-4 py-2.5 rounded-full hover:bg-white/90 transition-colors"
           >
             Try now
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={15} />
           </a>
         </div>
       </nav>
