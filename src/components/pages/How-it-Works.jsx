@@ -3,8 +3,8 @@ import Navbar from '../Navbar'
 import HIWHero from '../how-it-works/how-hero'
 import SetupSteps from '../how-it-works/Setup-steps'
 import VideoWalkthrough from '../how-it-works/video-walkthrough'
-// import Mechanics from '../components/how-it-works/Mechanics'
-// import SyncSection from '../components/how-it-works/SyncSection'
+import Mechanics from '../how-it-works/Mechanics'
+ import SyncSection from '../how-it-works/SyncSection'
 // import StaySection from '../components/how-it-works/StaySection'
 // import CompareLinks from '../components/how-it-works/CompareLinks'
 // import FinalCTA from '../components/how-it-works/FinalCTA'
@@ -18,9 +18,9 @@ export default function HowItWorks() {
         <HIWHero />
         <SetupSteps />
    <VideoWalkthrough />
-            {/*  <Mechanics />
-        <SyncSection />
-        <StaySection />
+          <Mechanics />
+            <SyncSection />
+      {/*  <StaySection />
         <CompareLinks />
         <FinalCTA />  */}
       </main>

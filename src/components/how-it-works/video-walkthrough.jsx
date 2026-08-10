@@ -34,7 +34,7 @@ export default function VideoWalkthrough() {
      <a
         href="/register"
         rel="noopener noreferrer"
-        className="mt-10 inline-flex items-center gap-2 bg-white text-black hover:bg-white/80 font-semibold px-6 py-3 rounded-full transition-transform"
+        className="mt-10 inline-flex items-center gap-2 bg-white text-black hover:bg-white/80 font-semibold px-4 py-2.5 rounded-full transition-transform"
       >
         Try it for yourself
         <ArrowUpRight size={18} />

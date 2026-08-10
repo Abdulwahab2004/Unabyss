@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
-
+  /* --font-sans: "Inter", system-ui, sans-serif; */
+  --font-sans:  "Lexend", system-ui, sans-serif;
   --color-bg: #0a0a0f;
   --color-bg-card: #111116;
   --color-accent: #7c5cff;

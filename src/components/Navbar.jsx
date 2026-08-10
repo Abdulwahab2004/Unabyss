@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { ArrowUpRight, ChevronUp, ChevronDown, LogIn } from 'lucide-react'
+import { ArrowUpRight, ChevronUp, ChevronDown, LogIn, Menu, X } from 'lucide-react'
 import SpotlightContainer from './SpotLightContainer'
 import Spotlight from './SpotLight'
 
@@ -20,6 +20,8 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [useCasesOpen, setUseCasesOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false)
   const dropdownRef = useRef(null)
 
   const handleScroll = useCallback(() => {
@@ -43,21 +45,36 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleEscape(e) {
-      if (e.key === 'Escape') setUseCasesOpen(false)
+      if (e.key === 'Escape') {
+        setUseCasesOpen(false)
+        setMobileOpen(false)
+      }
     }
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
   }, [])
 
+  // close mobile menu on resize up to desktop breakpoint
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 1024) {
+        setMobileOpen(false)
+        setMobileUseCasesOpen(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-bg/80 backdrop-blur-md' : 'bg-transparent'
+        scrolled ? 'bg-transparent' : 'bg-transparent'
       }`}
     >
-      <nav className="w-full flex items-center justify-between px-35 py-5">
+      <nav className="w-full flex items-center justify-between px-5 sm:px-8 lg:px-35 py-5">
         {/* LOGO — far left */}
-         <SpotlightContainer className="flex items-center gap-1 bg-badge bg-[#1d1d1d] border border-white/5 rounded-full pl-2">
+         <SpotlightContainer className="flex items-center gap-1 bg-transparent backdrop-blur border border-white/5 rounded-full pl-2">
         <a
           href="/"
           className="flex items-center gap-2.5 bg-badge rounded-full pl-3 pr-5 py-2 shrink-0"
@@ -70,14 +87,15 @@ export default function Navbar() {
           <span className="font-bold text-sm tracking-[0.4em] font-extralight text-white/80">UNABYSS</span>
         </a>
 </SpotlightContainer>
-        {/* RIGHT CLUSTER — nav pill + log in + try now, all grouped right */}
-        
-        <div className=" lg:flex items-center gap-6 shrink-0">
+        {/* RIGHT CLUSTER — nav pill + log in + try now, all grouped right (desktop only) */}
+
+        <div className="hidden lg:flex items-center gap-6 shrink-0">
          <SpotlightContainer
   className="
     relative
     flex items-center 
-    bg-[#1d1d1d]
+   bg-transparent
+   backdrop-blur-md
     border border-white/5
     rounded-full
     px-1 py-0.5
@@ -187,7 +205,71 @@ export default function Navbar() {
             <ArrowUpRight size={15} />
           </a>
         </div>
+
+        {/* HAMBURGER — mobile / tablet only */}
+        <div className="flex lg:hidden items-center">
+          <button
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/5 bg-transparent backdrop-blur text-white/70 hover:text-white transition-colors"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </nav>
+
+      {/* MOBILE MENU PANEL */}
+      {mobileOpen && (
+        <div className="lg:hidden px-5 sm:px-8 pb-5 animate-fade-up">
+          <div className="rounded-[24px] border border-white/10 bg-[#1d1d1d]/80 backdrop-blur-sm shadow-2xl overflow-hidden">
+            <div className="flex flex-col py-2">
+              <button
+                onClick={() => setMobileUseCasesOpen((o) => !o)}
+                aria-expanded={mobileUseCasesOpen}
+                className="flex items-center justify-between text-xs text-white/60 hover:text-white transition-colors px-5 py-3"
+              >
+                Use cases
+                {mobileUseCasesOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+              </button>
+
+              {mobileUseCasesOpen && (
+                <div className="flex flex-col">
+                  {USE_CASES.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="flex items-center justify-between px-5 py-2.5 pl-8 transition-colors hover:bg-white/[0.04]"
+                    >
+                      <span className="text-xs font-semibold text-white/60">{item.label}</span>
+                      <span className="text-xs font-light text-white/45">{item.desc}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs text-white/60 hover:text-white transition-colors px-5 py-3"
+                >
+                  {link.label}
+                </a>
+              ))}
+
+              <a
+                href="/register"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-1 text-[0.7rem] font-semibold bg-white text-black mx-5 my-3 py-2.5 rounded-full hover:bg-white/90 transition-colors"
+              >
+                Try now
+                <ArrowUpRight size={15} />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
