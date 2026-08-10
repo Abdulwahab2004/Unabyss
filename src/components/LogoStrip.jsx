@@ -112,7 +112,10 @@ export default function LogoStrip() {
         <div className="flex items-center gap-2 px-3 py-1.5 shrink-0">
          
           <span className="text-xs font-semibold text-white/90 whitespace-nowrap opacity-70">
-            750,000+ ITEMS SYNCED
+          750,000+
+          <span className="pl-2 text-xs font-semibold text-white/90 whitespace-nowrap opacity-70 tracking-widest" >
+             ITEMS SYNCED
+            </span>  
           </span>
         </div>
       {/* </div> */}

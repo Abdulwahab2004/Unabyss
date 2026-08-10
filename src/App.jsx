@@ -1,13 +1,12 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/pages/Home'
+import Hiw from './components/pages/How-it-Works'
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+     <Route path="how-it-works" element={<Hiw />} />
+    </Routes>
   )
 }
