@@ -5,10 +5,10 @@ import SetupSteps from '../how-it-works/Setup-steps'
 import VideoWalkthrough from '../how-it-works/video-walkthrough'
 import Mechanics from '../how-it-works/Mechanics'
  import SyncSection from '../how-it-works/SyncSection'
-// import StaySection from '../components/how-it-works/StaySection'
-// import CompareLinks from '../components/how-it-works/CompareLinks'
-// import FinalCTA from '../components/how-it-works/FinalCTA'
-// import Footer from '../components/Footer'
+// import StaySection from '../how-it-works/StaySection'
+import CompareLinks from '../how-it-works/CompareLinks'
+import FinalCTA from '../how-it-works/FinalCTA'
+ import Footer from '../how-it-works/Footer'
 
 export default function HowItWorks() {
   return (
@@ -20,11 +20,12 @@ export default function HowItWorks() {
    <VideoWalkthrough />
           <Mechanics />
             <SyncSection />
-      {/*  <StaySection />
+       {/* <StaySection /> */}
         <CompareLinks />
-        <FinalCTA />  */}
+        <FinalCTA />  
+
       </main>
-      {/* <Footer /> */}
+       <Footer /> 
     </div>
   )
 }

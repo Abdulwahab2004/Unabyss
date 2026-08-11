@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function VideoWalkthrough() {
   return (
-    <section className="px-6 py-24 max-w-4xl mx-auto text-center">
+    <section className="px-6 py-24 max-w-6xl mx-auto text-center">
       <p className="text-xs uppercase tracking-widest text-white/40 mb-3">Quick tour</p>
       <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
         Unabyss walkthrough
