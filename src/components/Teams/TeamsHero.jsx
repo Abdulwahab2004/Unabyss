@@ -16,7 +16,7 @@ export default function TeamsHero() {
         Unabyss for teams
       </p>
 
-      <h1 className="text-4xl sm:text-6xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.1]">
+      <h1 className="text-4xl sm:text-7xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.1]">
         An AI memory for every teammate.
       </h1>
 
@@ -30,7 +30,7 @@ export default function TeamsHero() {
       <a
         href="/register"
         rel="noopener noreferrer"
-        className="mt-10 inline-flex items-center gap-2 bg-white text-black font-semibold px-6 py-3.5 rounded-full hover:scale-[1.03] transition-transform"
+        className="text-sm mt-10 inline-flex items-center gap-2 bg-white text-black font-semibold px-5 py-3 rounded-full hover:scale-[1.03] transition-transform"
       >
         Test it out with a 7-day trial
         <ArrowUpRight size={18} />

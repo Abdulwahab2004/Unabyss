@@ -235,7 +235,7 @@ export default function Footer() {
 
       <div className="relative px-4 sm:px-6 py-16 sm:py-24">
 
-        <Spotlight className=" max-w-6xl mx-auto rounded-2xl sm:rounded-3xl bg-white/[0.035] border border-white/5 px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
+        <Spotlight className="max-w-6xl mx-auto rounded-2xl sm:rounded-3xl bg-white/[0.035] border border-white/5 px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
         
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-10 lg:gap-8">
             {/* Left: brand */}
