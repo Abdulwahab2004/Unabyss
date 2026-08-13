@@ -2,37 +2,28 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import SpotlightContainer from '../SpotLightContainer'
 
-
 /* =========================================================
    SECTION CONFIG
-   Change these values to adjust the section globally.
    ========================================================= */
 
 const CTA_CONFIG = {
-  // Main section dimensions
   width: '1290px',
   minHeight: '372px',
 
-  // Outer spacing
   paddingX: '56px',
   paddingY: '64px',
 
-  // Border
   borderColor: 'rgba(255, 194, 0, 0.95)',
   borderRadius: '30px',
 
-  // Main colors
   background: '#201f1e',
 
-  // Content
   titleMaxWidth: '560px',
   descriptionMaxWidth: '590px',
 
-  // CTA pill
   pillBackground: '#151515',
   buttonBackground: '#ffffff',
 }
-
 
 /* =========================================================
    CONTENT
@@ -64,7 +55,6 @@ const CTA_CONTENT = {
   button: 'Test it out with a 7-day trial',
 }
 
-
 /* =========================================================
    SCROLL REVEAL HOOK
    ========================================================= */
@@ -78,7 +68,6 @@ function useScrollReveal() {
 
     if (!element) return
 
-    // Respect users who have disabled motion.
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches
@@ -112,7 +101,6 @@ function useScrollReveal() {
   }
 }
 
-
 /* =========================================================
    CTA BUTTON
    ========================================================= */
@@ -124,14 +112,15 @@ function CTAButton() {
       className="
         group
         inline-flex
-        min-h-[52px]
+        min-h-[48px]
+        w-full
         items-center
         justify-center
-        gap-3
+        gap-2.5
         rounded-full
         bg-white
-        px-7
-        text-[15px]
+        px-5
+        text-[14px]
         font-semibold
         tracking-[-0.01em]
         text-black
@@ -141,17 +130,20 @@ function CTAButton() {
         hover:scale-[1.015]
         hover:bg-white/95
         active:scale-[0.985]
-        whitespace-nowrap
+
+        sm:min-h-[52px]
+        sm:w-auto
+        sm:px-7
+        sm:text-[15px]
       "
     >
-      <span>
-        {CTA_CONTENT.button}
-      </span>
+      <span>{CTA_CONTENT.button}</span>
 
       <ArrowUpRight
         size={17}
         strokeWidth={1.8}
         className="
+          shrink-0
           transition-transform
           duration-200
           group-hover:-translate-y-0.5
@@ -161,7 +153,6 @@ function CTAButton() {
     </a>
   )
 }
-
 
 /* =========================================================
    MAIN SECTION
@@ -175,11 +166,17 @@ export default function TeamCTA() {
       ref={ref}
       className="
         w-full
+        overflow-hidden
         bg-[#0f0f0f]
+
         px-4
-        py-20
+        py-16
+
         sm:px-6
-        sm:py-24
+        sm:py-20
+
+        md:py-24
+
         lg:py-28
       "
     >
@@ -191,146 +188,218 @@ export default function TeamCTA() {
           w-full
           items-center
           overflow-hidden
+
           transition-all
           duration-1000
           ease-[cubic-bezier(0.22,1,0.36,1)]
+
           ${
             visible
               ? 'translate-y-0 scale-100 opacity-100'
               : 'translate-y-10 scale-[0.985] opacity-0'
           }
+
+          rounded-[22px]
+
+          sm:rounded-[26px]
+
+          lg:rounded-[30px]
         `}
         style={{
           maxWidth: CTA_CONFIG.width,
-          minHeight: CTA_CONFIG.minHeight,
-          paddingLeft: CTA_CONFIG.paddingX,
-          paddingRight: CTA_CONFIG.paddingX,
-          paddingTop: CTA_CONFIG.paddingY,
-          paddingBottom: CTA_CONFIG.paddingY,
+
+          /*
+           * Keep the original desktop dimensions,
+           * but let the card grow naturally on mobile.
+           */
+          minHeight: undefined,
 
           backgroundColor: CTA_CONFIG.background,
+
           border: `1px solid ${CTA_CONFIG.borderColor}`,
-          borderRadius: CTA_CONFIG.borderRadius,
         }}
       >
-
         {/* =================================================
-            SUBTLE BACKGROUND GLOW
+            RESPONSIVE INNER PADDING
             ================================================= */}
 
         <div
-          aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute
-            bottom-[-180px]
-            right-[-100px]
-            h-[380px]
-            w-[520px]
-            rounded-full
-            bg-[#d9a500]/[0.045]
-            blur-[100px]
-          "
-        />
-
-
-        {/* =================================================
-            CONTENT
-            ================================================= */}
-
-        <SpotlightContainer
           className="
             relative
             z-10
-            grid
             w-full
-            grid-cols-1
-            items-center
-            gap-10
-            lg:grid-cols-[1fr_auto]
-            lg:gap-14
+
+            px-5
+            py-8
+
+            sm:px-7
+            sm:py-10
+
+            md:px-10
+            md:py-12
+
+            lg:px-14
+            lg:py-16
           "
         >
-
-          {/* LEFT SIDE */}
-
-          <div className="min-w-0">
-
-            <h2
-              className="
-                max-w-[560px]
-                text-[32px]
-                font-semibold
-                leading-[1.15]
-                tracking-[-0.035em]
-                text-white
-                sm:text-[36px]
-                lg:text-[38px]
-              "
-              style={{
-                maxWidth: CTA_CONFIG.titleMaxWidth,
-              }}
-            >
-              {CTA_CONTENT.title}
-            </h2>
-
-
-            <p
-              className="
-                mt-6
-                max-w-[590px]
-                text-[17px]
-                font-normal
-                leading-[1.65]
-                tracking-[-0.01em]
-                text-white/55
-                sm:text-[18px]
-              "
-              style={{
-                maxWidth: CTA_CONFIG.descriptionMaxWidth,
-              }}
-            >
-              {CTA_CONTENT.description}
-            </p>
-
-          </div>
-
-
-          {/* RIGHT SIDE CTA */}
+          {/* =================================================
+              SUBTLE BACKGROUND GLOW
+              ================================================= */}
 
           <div
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute
+              bottom-[-180px]
+              right-[-100px]
+
+              h-[280px]
+              w-[380px]
+
+              rounded-full
+              bg-[#d9a500]/[0.045]
+              blur-[100px]
+
+              sm:h-[340px]
+              sm:w-[460px]
+
+              lg:h-[380px]
+              lg:w-[520px]
+            "
+          />
+
+          {/* =================================================
+              CONTENT
+              ================================================= */}
+
+          <SpotlightContainer
             className="
               relative
-              z-20
-              flex
-              shrink-0
+              z-10
+              grid
+              w-full
+              grid-cols-1
               items-center
-              rounded-full
-              bg-[#151515]
-              p-2
-              shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+
+              gap-8
+
+              md:gap-10
+
+              lg:grid-cols-[minmax(0,1fr)_auto]
+              lg:gap-12
+
+              xl:gap-14
             "
           >
+            {/* =================================================
+                LEFT SIDE
+                ================================================= */}
 
-            <span
+            <div className="min-w-0">
+              <h2
+                className="
+                  max-w-[560px]
+
+                  text-[28px]
+                  font-semibold
+                  leading-[1.12]
+                  tracking-[-0.035em]
+                  text-white
+
+                  sm:text-[32px]
+
+                  md:text-[36px]
+
+                  lg:text-[38px]
+                "
+                style={{
+                  maxWidth: CTA_CONFIG.titleMaxWidth,
+                }}
+              >
+                {CTA_CONTENT.title}
+              </h2>
+
+              <p
+                className="
+                  mt-5
+
+                  max-w-[590px]
+
+                  text-[15px]
+                  font-normal
+                  leading-[1.65]
+                  tracking-[-0.01em]
+                  text-white/55
+
+                  sm:mt-6
+                  sm:text-[16px]
+
+                  md:text-[17px]
+
+                  lg:text-[18px]
+                "
+                style={{
+                  maxWidth: CTA_CONFIG.descriptionMaxWidth,
+                }}
+              >
+                {CTA_CONTENT.description}
+              </p>
+            </div>
+
+            {/* =================================================
+                RIGHT SIDE CTA
+                ================================================= */}
+
+            <div
               className="
-                px-5
-                text-[15px]
-                font-semibold
-                tracking-[-0.01em]
-                text-[#e1bb68]
-                whitespace-nowrap
+                relative
+                z-20
+                flex
+                w-full
+                shrink-0
+
+                flex-col
+
+                rounded-[20px]
+                bg-[#151515]
+                p-2
+
+                shadow-[0_10px_40px_rgba(0,0,0,0.18)]
+
+                sm:flex-row
+                sm:items-center
+                sm:rounded-full
+                sm:w-fit
               "
             >
-              {CTA_CONTENT.label}
-            </span>
+              <span
+                className="
+                  px-3
+                  py-2
 
+                  text-center
+                  text-[13px]
+                  font-semibold
+                  tracking-[-0.01em]
+                  text-[#e1bb68]
+                  whitespace-normal
 
-            <CTAButton />
+                  sm:px-4
+                  sm:text-[14px]
+                  sm:whitespace-nowrap
 
-          </div>
+                  md:px-5
+                  md:text-[15px]
+                "
+              >
+                {CTA_CONTENT.label}
+              </span>
 
-        </SpotlightContainer>
+              <CTAButton />
+            </div>
+          </SpotlightContainer>
+        </div>
       </div>
     </section>
   )

@@ -1,49 +1,51 @@
 export default function FinalCTA() {
   return (
-    <section className="bg-[#101010] px-6 pr-24 pl-50 sm:py-28">
-      <div className="mx-auto grid max-w-[1150px] items-center lg:grid-cols-[0.82fr_1.18fr] ">
+    <section className="bg-[#101010] px-6 py-16 sm:px-10 sm:py-24 lg:px-24 lg:py-28">
+      <div className="mx-auto grid max-w-[1150px] items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-10">
         {/* LEFT */}
         <div className="max-w-[560px]">
           <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.32em] text-white/35">
             See it live
           </p>
 
-          <h2 className="max-w-[520px] text-[46px] font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-[40pxs]">
+          <h2 className="max-w-[520px] text-[32px] sm:text-[40px] lg:text-[46px] font-semibold leading-[1.12] tracking-[-0.03em] text-white">
             Your context, one
-            <br />
+            <br className="hidden sm:block" />
             prompt away
           </h2>
 
-          <p className="mt-7 max-w-[450px] text-[17px] leading-[1.75] text-white/60">
+          <p className="mt-6 max-w-[450px] text-[15px] sm:text-[17px] leading-[1.7] text-white/60">
             Connect your sources once. Then every question your AI asks pulls
             the right context over MCP - no re-explaining, no copy-paste.
             Plug it in and feel the difference on your next prompt.
           </p>
 
           {/* CTA */}
-          <div className="relative mt-10 inline-flex rounded-full">
+          <div className="mt-10 flex justify-center lg:justify-start">
+          <div className="relative inline-flex rounded-full max-w-full">
             {/* Glow */}
             <div className="absolute -inset-5 rounded-full bg-[#b68a43]/20 blur-2xl" />
 
-            <div className="relative flex items-center rounded-full border border-[#80602d] bg-[#191713] p-[15px] shadow-[0_0_35px_rgba(174,128,56,0.18)]">
-              <span className="pr-[10px] text-[15px] font-semibold text-[#d9b46e]">
+            <div className="relative flex flex-wrap items-center justify-center gap-3 rounded-full border border-[#80602d] bg-[#191713] p-[15px] shadow-[0_0_35px_rgba(174,128,56,0.18)]">
+              <span className="text-center text-[13px] sm:text-[15px] font-semibold text-[#d9b46e]">
                 Supercharge your Claude
               </span>
 
               <a
                 href="https://app.unabyss.com/register?_gl=1*5gmtxo*_ga*MTEwODMyODY1OC4xNzg1OTMzMjE0*_ga_2L1V04BRL5*czE3ODY0MzE0ODYkbzE3JGcxJHQxNzg2NDMzMDM5JGo1OSRsMCRoMA.."
                 rel="noopener noreferrer"
-                className="inline-flex h-[48px] items-center gap-3 rounded-full bg-[#f5f5f5] px-7 text-[15px] font-semibold text-[#111] transition-transform duration-200 hover:scale-[1.03]"
+                className="inline-flex h-[44px] sm:h-[48px] items-center gap-3 rounded-full bg-[#f5f5f5] px-6 sm:px-7 text-[14px] sm:text-[15px] font-semibold text-[#111] transition-transform duration-200 hover:scale-[1.03]"
               >
                 Start now
                 <span className="text-[18px] leading-none">↗</span>
               </a>
             </div>
           </div>
+          </div>
         </div>
 
         {/* RIGHT — CHAT MOCKUP */}
-        <div className="w-full sm:w-[37rem] mx-auto">
+        <div className="w-full lg:w-[37rem] mx-auto">
           <div className="relative overflow-hidden rounded-[14px] border border-white/[0.12] bg-[#252523] shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
             {/* Window header */}
             <div className="flex h-[52px] items-center justify-between px-4">
@@ -56,7 +58,7 @@ export default function FinalCTA() {
 
                 <span className="ml-1 h-[13px] w-[13px] rounded-[2px] border border-white/30" />
 
-                <span className="ml-2 text-[13px] text-white/65">
+                <span className="ml-2 text-[13px] text-white/65 truncate max-w-[140px] sm:max-w-none">
                   Q3 launch status
                 </span>
 
@@ -67,14 +69,14 @@ export default function FinalCTA() {
             </div>
 
             {/* Chat body */}
-            <div className="flex min-h-[450px] flex-col px-9 pb-3 pt-32">
+            <div className="flex min-h-[380px] sm:min-h-[450px] flex-col px-5 sm:px-9 pb-3 pt-16 sm:pt-32">
               {/* User message */}
-              <div className="ml-auto max-w-[290px] rounded-[12px] border border-white/[0.12] bg-[#333331] px-4 py-3 text-[13px] text-white/70">
+              <div className="ml-auto max-w-[85%] sm:max-w-[290px] rounded-[12px] border border-white/[0.12] bg-[#333331] px-4 py-3 text-[13px] text-white/70">
                 What&apos;s the status of our Q3 launch?
               </div>
 
               {/* Assistant reasoning */}
-              <div className="mt-5 max-w-[510px]">
+              <div className="mt-5 max-w-full sm:max-w-[510px]">
                 <div className="flex items-center gap-2 text-[13px] font-medium text-white/75">
                   <span className="text-[#d87845]">✦</span>
                   <span>Mobilized tools to pull the Q3 launch status</span>
@@ -96,18 +98,18 @@ export default function FinalCTA() {
                     Write a message...
                   </div>
 
-                  <div className="mt-5 flex items-center justify-between">
+                  <div className="mt-5 flex items-center justify-between gap-2">
                     <span className="text-[18px] text-white/35">+</span>
 
-                    <div className="flex items-center gap-4 text-[11px] text-white/45">
-                      <span>
+                    <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-[11px] text-white/45 overflow-x-auto no-scrollbar">
+                      <span className="whitespace-nowrap">
                         Sonnet 5 <span className="text-white/25">⌄</span>
                       </span>
-                      <span>
+                      <span className="whitespace-nowrap">
                         Medium <span className="text-white/25">⌄</span>
                       </span>
                       <span className="text-[16px]">♩</span>
-                      <span className="flex h-[18px] w-[18px] items-center justify-center rounded-[4px] border border-white/20">
+                      <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] border border-white/20">
                         ●
                       </span>
                     </div>
@@ -123,6 +125,8 @@ export default function FinalCTA() {
           </div>
         </div>
       </div>
+
+      <style>{`.no-scrollbar::-webkit-scrollbar { display: none; } .no-scrollbar { scrollbar-width: none; }`}</style>
     </section>
   )
 }

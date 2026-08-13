@@ -2,30 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 
 /*
 |--------------------------------------------------------------------------
-| EASY SIZE CONTROLS
-|--------------------------------------------------------------------------
-| Change these values to resize this section without touching the layout.
-|
-| ADMIN_SECTION_WIDTH:
-|   Controls the maximum width of the complete dashboard.
-|
-| ADMIN_SECTION_HEIGHT:
-|   Controls the minimum height of the dashboard shell.
-|
-| You can also change:
-|   ADMIN_SECTION_MAX_WIDTH
-|   DASHBOARD_HEIGHT
-|   MEMBER_CARD_WIDTH
-|
+| RESPONSIVE SIZE CONTROLS
 |--------------------------------------------------------------------------
 */
 
 const ADMIN_SECTION_WIDTH = '820px'
-const ADMIN_SECTION_HEIGHT = '548px'
-
 const ADMIN_SECTION_MAX_WIDTH = 'calc(100vw - 32px)'
-const DASHBOARD_HEIGHT = '548px'
-const MEMBER_CARD_WIDTH = '184px'
 
 /*
 |--------------------------------------------------------------------------
@@ -163,8 +145,6 @@ function MoreIcon() {
 |--------------------------------------------------------------------------
 | HALFTONE BACKGROUND
 |--------------------------------------------------------------------------
-| This recreates the dotted visual shown on the left side of the dashboard.
-| No image dependency is needed.
 */
 
 function HalftoneVisual() {
@@ -194,13 +174,7 @@ function HalftoneVisual() {
         }}
       />
 
-      <div
-        className="
-          absolute
-          inset-0
-          opacity-80
-        "
-      >
+      <div className="absolute inset-0 opacity-80">
         {dots.map((_, index) => {
           const row = Math.floor(index / 22)
           const col = index % 22
@@ -216,9 +190,7 @@ function HalftoneVisual() {
 
           if (!visible) return null
 
-          const opacity =
-            0.18 +
-            ((index * 17) % 55) / 100
+          const opacity = 0.18 + ((index * 17) % 55) / 100
 
           return (
             <span
@@ -236,7 +208,6 @@ function HalftoneVisual() {
         })}
       </div>
 
-      {/* Soft vignette */}
       <div
         className="
           absolute
@@ -264,15 +235,18 @@ function DashboardButton({ children, icon, danger = false }) {
       className={`
         inline-flex
         items-center
+        justify-center
         gap-1.5
-        h-8
+        min-h-8
         px-3
+        py-1.5
         rounded-md
         border
         text-[11px]
         font-medium
         transition-colors
         duration-200
+        whitespace-nowrap
         ${
           danger
             ? 'border-transparent text-[#ef6666] hover:bg-[#ef6666]/10'
@@ -298,7 +272,8 @@ function TeamPanel() {
       className="
         relative
         flex
-        min-h-[198px]
+        flex-col
+        lg:flex-row
         overflow-hidden
         rounded-[20px]
         border
@@ -307,21 +282,37 @@ function TeamPanel() {
       "
     >
       {/* Left visual */}
-      <div className="relative w-[38%] shrink-0 overflow-hidden">
+      <div
+        className="
+          relative
+          w-full
+          h-[130px]
+          sm:h-[150px]
+          lg:h-auto
+          lg:w-[38%]
+          lg:min-h-[198px]
+          shrink-0
+          overflow-hidden
+        "
+      >
         <HalftoneVisual />
       </div>
 
       {/* Right content */}
       <div className="flex min-w-0 flex-1 flex-col">
+        {/* Header */}
         <div
           className="
             flex
-            items-start
-            justify-between
-            gap-4
+            flex-col
+            sm:flex-row
+            sm:items-start
+            sm:justify-between
+            gap-3
             border-b
             border-white/[0.08]
-            px-5
+            px-4
+            sm:px-5
             pt-4
             pb-3
           "
@@ -331,20 +322,20 @@ function TeamPanel() {
 
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="truncate text-[16px] font-semibold text-white">
+                <span className="truncate text-[15px] sm:text-[16px] font-semibold text-white">
                   Dunder Mifflin
                 </span>
 
                 <button
                   type="button"
-                  className="text-white/40 transition-colors hover:text-white/70"
+                  className="shrink-0 text-white/40 transition-colors hover:text-white/70"
                   aria-label="Edit team name"
                 >
                   <EditIcon />
                 </button>
               </div>
 
-              <p className="mt-0.5 text-[11px] text-white/35">
+              <p className="mt-0.5 text-[10px] sm:text-[11px] text-white/35">
                 Team plan · 2 of 3 seats used
               </p>
             </div>
@@ -352,6 +343,7 @@ function TeamPanel() {
 
           <span
             className="
+              self-start
               shrink-0
               rounded-full
               border
@@ -368,7 +360,8 @@ function TeamPanel() {
           </span>
         </div>
 
-        <div className="flex flex-1 flex-col justify-between px-5 py-4">
+        {/* Controls */}
+        <div className="flex flex-1 flex-col justify-between px-4 sm:px-5 py-4">
           <div className="flex flex-wrap items-center gap-2">
             <DashboardButton icon={<BillingIcon />}>
               Manage billing <ExternalIcon />
@@ -381,8 +374,8 @@ function TeamPanel() {
             <button
               type="button"
               className="
-                ml-1
                 px-2
+                py-1.5
                 text-[11px]
                 font-medium
                 text-[#ef6666]
@@ -394,8 +387,9 @@ function TeamPanel() {
             </button>
           </div>
 
-          <p className="text-[10px] text-white/30">
-            Payment method, billing details and cancellation are managed in the Stripe portal.
+          <p className="mt-5 text-[10px] leading-4 text-white/30">
+            Payment method, billing details and cancellation are managed in
+            the Stripe portal.
           </p>
         </div>
       </div>
@@ -415,7 +409,13 @@ function MemberCard({ member, menu }) {
       className="
         relative
         flex
-        h-[184px]
+        h-[160px]
+        sm:h-[184px]
+        w-full
+        sm:w-[184px]
+        flex-1
+        sm:flex-none
+        min-w-0
         flex-col
         items-center
         rounded-xl
@@ -423,11 +423,9 @@ function MemberCard({ member, menu }) {
         border-white/[0.10]
         bg-[#1b1b1b]
         px-4
-        pt-12
+        pt-10
+        sm:pt-12
       "
-      style={{
-        width: MEMBER_CARD_WIDTH,
-      }}
     >
       {/* Online indicator */}
       <span
@@ -467,6 +465,7 @@ function MemberCard({ member, menu }) {
           flex
           h-10
           w-10
+          shrink-0
           items-center
           justify-center
           rounded-full
@@ -479,11 +478,11 @@ function MemberCard({ member, menu }) {
         {member.initials}
       </div>
 
-      <p className="mt-2 text-[11px] font-semibold text-white">
+      <p className="mt-2 text-center text-[11px] font-semibold text-white">
         {member.name}
       </p>
 
-      <p className="mt-0.5 text-[10px] text-white/35">
+      <p className="mt-0.5 text-center text-[10px] text-white/35">
         {member.role}
       </p>
     </div>
@@ -502,7 +501,13 @@ function FreeSeatCard() {
       type="button"
       className="
         flex
-        h-[184px]
+        h-[160px]
+        sm:h-[184px]
+        w-full
+        sm:w-[184px]
+        flex-1
+        sm:flex-none
+        min-w-0
         flex-col
         items-center
         justify-center
@@ -518,9 +523,6 @@ function FreeSeatCard() {
         hover:bg-white/[0.015]
         hover:text-white/65
       "
-      style={{
-        width: MEMBER_CARD_WIDTH,
-      }}
     >
       <PlusIcon />
 
@@ -550,7 +552,16 @@ function MembersSection() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3">
+      <div
+        className="
+          grid
+          grid-cols-1
+          xs:grid-cols-2
+          sm:flex
+          sm:flex-wrap
+          gap-3
+        "
+      >
         {MEMBERS.map((member, index) => (
           <MemberCard
             key={member.name}
@@ -616,9 +627,10 @@ export default function AdminControls() {
         overflow-hidden
         bg-[#0d0d0d]
         px-4
-        py-24
+        py-20
         sm:px-6
-        sm:py-28
+        sm:py-24
+        lg:py-28
       "
     >
       {/* Background */}
@@ -628,8 +640,10 @@ export default function AdminControls() {
           absolute
           left-1/2
           top-[38%]
-          h-[500px]
-          w-[800px]
+          h-[400px]
+          w-[650px]
+          sm:h-[500px]
+          sm:w-[800px]
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
@@ -641,13 +655,14 @@ export default function AdminControls() {
 
       <div className="relative mx-auto w-full max-w-[980px]">
         {/* Heading */}
-        <div className="mx-auto mb-10 max-w-[720px] text-center sm:mb-12">
+        <div className="mx-auto mb-8 sm:mb-10 lg:mb-12 max-w-[720px] text-center">
           <p
             className={`
               mb-3
               text-[9px]
               uppercase
-              tracking-[0.38em]
+              tracking-[0.3em]
+              sm:tracking-[0.38em]
               text-white/35
               transition-all
               duration-700
@@ -664,12 +679,13 @@ export default function AdminControls() {
 
           <h2
             className={`
-              text-3xl
-              font-semibold
-              leading-[1.12]
+              text-2xl
+              leading-[1.15]
               tracking-[-0.025em]
+              font-semibold
               text-white
-              sm:text-[32px]
+              sm:text-3xl
+              lg:text-[32px]
               transition-all
               duration-700
               ease-out
@@ -691,7 +707,9 @@ export default function AdminControls() {
           <p
             className={`
               mt-4
+              px-2
               text-[12px]
+              leading-5
               text-white/40
               transition-all
               duration-700
@@ -726,35 +744,27 @@ export default function AdminControls() {
           `}
           style={{
             maxWidth: ADMIN_SECTION_MAX_WIDTH,
-            width: ADMIN_SECTION_WIDTH,
-            height: ADMIN_SECTION_HEIGHT,
+            width: `min(${ADMIN_SECTION_WIDTH}, 100%)`,
             transitionDelay: visible ? '180ms' : '0ms',
           }}
         >
           <div
             className="
-              h-full
               w-full
               overflow-hidden
               rounded-[14px]
               border
               border-white/[0.07]
               bg-[#151515]
-              p-6
+              p-3
+              sm:p-5
+              lg:p-6
               shadow-[0_30px_100px_rgba(0,0,0,0.35)]
-              sm:p-7
             "
           >
-            <div
-              className="mx-auto h-full w-full"
-              style={{
-                minHeight: DASHBOARD_HEIGHT,
-              }}
-            >
-              <TeamPanel />
+            <TeamPanel />
 
-              <MembersSection />
-            </div>
+            <MembersSection />
           </div>
         </div>
       </div>

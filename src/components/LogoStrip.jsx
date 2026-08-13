@@ -109,15 +109,14 @@ export default function LogoStrip() {
 
         <div className="w-px h-5 bg-white/10 mx-3 shrink-0" aria-hidden="true" />
 
-        <div className="flex items-center gap-2 px-3 py-1.5 shrink-0">
-         
-          <span className="text-xs font-semibold text-white/90 whitespace-nowrap opacity-70">
-          750,000+
-          <span className="pl-2 text-xs font-semibold text-white/90 whitespace-nowrap opacity-70 tracking-widest" >
-             ITEMS SYNCED
-            </span>  
-          </span>
-        </div>
+       <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 shrink-0">
+  <span className="text-xs font-semibold text-white/90 whitespace-nowrap opacity-70">
+    750,000+
+    <span className="pl-2 text-xs font-semibold text-white/90 whitespace-nowrap opacity-70 tracking-widest">
+      ITEMS SYNCED
+    </span>
+  </span>
+</div>
       {/* </div> */}
 </SpotlightContainer>
      <p className="text-center text-xs text-white/30 mt-6 tracking-widest">

@@ -2,24 +2,19 @@ import React, { useEffect, useRef, useState } from 'react'
 
 /* =========================================================
    EASY CONTROLS
-   Change these values only when you want to resize the section.
    ========================================================= */
 
 const ADMIN_SECTION = {
   width: '820px',
   maxWidth: 'calc(100vw - 32px)',
 
-  // Main section/card height
   height: '548px',
 
-  // Individual seat cards
   seatWidth: '119px',
   seatHeight: '148px',
 
-  // Bottom privacy notice
   noticeHeight: '94px',
 }
-
 
 /* =========================================================
    DATA
@@ -31,16 +26,6 @@ const TEAM_MEMBERS = [
     name: 'Dwight Schrute',
     role: 'Member',
     online: true,
-  },
-]
-
-const SEATS = [
-  {
-    type: 'member',
-    member: TEAM_MEMBERS[0],
-  },
-  {
-    type: 'free',
   },
 ]
 
@@ -68,7 +53,6 @@ const MENU_ITEMS = [
   },
 ]
 
-
 /* =========================================================
    ICONS
    ========================================================= */
@@ -77,7 +61,7 @@ function MoreIcon() {
   return (
     <svg
       viewBox="0 0 20 20"
-      className="size-3.5"
+      className="w-3.5 h-3.5"
       fill="currentColor"
       aria-hidden="true"
     >
@@ -88,12 +72,11 @@ function MoreIcon() {
   )
 }
 
-
 function PlusIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="size-6"
+      className="w-6 h-6"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.3"
@@ -106,12 +89,11 @@ function PlusIcon() {
   )
 }
 
-
 function EyeOffIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="size-[18px]"
+      className="w-[18px] h-[18px]"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -127,13 +109,12 @@ function EyeOffIcon() {
   )
 }
 
-
 function MenuIcon({ type }) {
   if (type === 'admin') {
     return (
       <svg
         viewBox="0 0 20 20"
-        className="size-3"
+        className="w-3 h-3"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.3"
@@ -152,7 +133,7 @@ function MenuIcon({ type }) {
     return (
       <svg
         viewBox="0 0 20 20"
-        className="size-3"
+        className="w-3 h-3"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.3"
@@ -171,7 +152,7 @@ function MenuIcon({ type }) {
     return (
       <svg
         viewBox="0 0 20 20"
-        className="size-3"
+        className="w-3 h-3"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.3"
@@ -186,7 +167,7 @@ function MenuIcon({ type }) {
   return (
     <svg
       viewBox="0 0 20 20"
-      className="size-3"
+      className="w-3 h-3"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.3"
@@ -202,7 +183,6 @@ function MenuIcon({ type }) {
   )
 }
 
-
 /* =========================================================
    SEAT CARD
    ========================================================= */
@@ -212,22 +192,31 @@ function MemberSeat({ member, showMenu = false }) {
     <div
       className="
         relative
-        flex shrink-0 flex-col items-center
+        flex
+        shrink-0
+        flex-col
+        items-center
         rounded-[10px]
-        border border-white/[0.09]
+        border
+        border-white/[0.09]
         bg-[#1c1c1c]
+
+        w-[104px]
+        h-[132px]
+
+        sm:w-[119px]
+        sm:h-[148px]
       "
-      style={{
-        width: ADMIN_SECTION.seatWidth,
-        height: ADMIN_SECTION.seatHeight,
-      }}
     >
       {/* Online indicator */}
       {member.online && (
         <span
           className="
-            absolute left-[8px] top-[8px]
-            size-[5px]
+            absolute
+            left-2
+            top-2
+            w-[5px]
+            h-[5px]
             rounded-full
             bg-[#54e39a]
           "
@@ -240,7 +229,9 @@ function MemberSeat({ member, showMenu = false }) {
           type="button"
           aria-label={`More options for ${member.name}`}
           className="
-            absolute right-[7px] top-[7px]
+            absolute
+            right-[7px]
+            top-[7px]
             text-white/30
             transition-colors
             hover:text-white/70
@@ -253,20 +244,34 @@ function MemberSeat({ member, showMenu = false }) {
       {/* Avatar */}
       <div
         className="
-          mt-[44px]
-          flex size-[32px]
-          items-center justify-center
+          mt-9
+          flex
+          w-8
+          h-8
+          items-center
+          justify-center
           rounded-full
           bg-[#dedede]
           text-[9px]
           font-medium
           text-[#242424]
+
+          sm:mt-[44px]
         "
       >
         {member.initials}
       </div>
 
-      <p className="mt-[7px] whitespace-nowrap text-[10px] font-medium text-white/90">
+      <p
+        className="
+          mt-[7px]
+          max-w-[90px]
+          truncate
+          text-[10px]
+          font-medium
+          text-white/90
+        "
+      >
         {member.name}
       </p>
 
@@ -277,28 +282,38 @@ function MemberSeat({ member, showMenu = false }) {
   )
 }
 
+/* =========================================================
+   FREE SEAT
+   ========================================================= */
 
 function FreeSeat() {
   return (
     <button
       type="button"
       className="
-        flex shrink-0 flex-col
-        items-center justify-center
+        flex
+        shrink-0
+        flex-col
+        items-center
+        justify-center
         rounded-[10px]
-        border border-dashed
+        border
+        border-dashed
         border-white/[0.14]
         bg-transparent
         text-white/35
-        transition-all duration-200
+        transition-all
+        duration-200
         hover:border-white/25
         hover:bg-white/[0.015]
         hover:text-white/60
+
+        w-[104px]
+        h-[132px]
+
+        sm:w-[119px]
+        sm:h-[148px]
       "
-      style={{
-        width: ADMIN_SECTION.seatWidth,
-        height: ADMIN_SECTION.seatHeight,
-      }}
     >
       <PlusIcon />
 
@@ -309,7 +324,6 @@ function FreeSeat() {
   )
 }
 
-
 /* =========================================================
    CONTEXT MENU
    ========================================================= */
@@ -319,13 +333,18 @@ function MemberMenu() {
     <div
       className="
         absolute
-        left-[127px]
-        top-[27px]
         z-30
+        top-[27px]
+
+        left-[108px]
         w-[145px]
+
+        sm:left-[127px]
+
         overflow-hidden
         rounded-[8px]
-        border border-white/[0.10]
+        border
+        border-white/[0.10]
         bg-[#191919]
         p-[5px]
         shadow-[0_18px_40px_rgba(0,0,0,0.45)]
@@ -336,13 +355,17 @@ function MemberMenu() {
           key={item.label}
           type="button"
           className={`
-            flex w-full items-center gap-[7px]
+            flex
+            w-full
+            items-center
+            gap-[7px]
             rounded-[5px]
             px-[7px]
             py-[5px]
             text-left
             text-[9px]
             transition-colors
+
             ${
               item.highlighted
                 ? 'bg-[#382324] text-[#ee6464]'
@@ -350,20 +373,22 @@ function MemberMenu() {
                   ? 'text-[#e85d5d] hover:bg-[#321f20]'
                   : 'text-white/75 hover:bg-white/[0.05]'
             }
-            ${index === 3 ? 'mt-[3px] border-t border-white/[0.08] pt-[8px]' : ''}
+
+            ${
+              index === 3
+                ? 'mt-[3px] border-t border-white/[0.08] pt-[8px]'
+                : ''
+            }
           `}
         >
           <MenuIcon type={item.icon} />
 
-          <span>
-            {item.label}
-          </span>
+          <span>{item.label}</span>
         </button>
       ))}
     </div>
   )
 }
-
 
 /* =========================================================
    DEMO CARDS
@@ -371,7 +396,7 @@ function MemberMenu() {
 
 function InviteCard() {
   return (
-    <div>
+    <div className="min-w-0">
       {/* Visual */}
       <div
         className="
@@ -379,19 +404,28 @@ function InviteCard() {
           flex
           overflow-hidden
           rounded-[12px]
-          border border-white/[0.08]
+          border
+          border-white/[0.08]
           bg-[#151515]
+
+          h-[220px]
+
+          sm:h-[252px]
         "
-        style={{
-          width: '100%',
-          height: '252px',
-        }}
       >
         {/* top bar */}
         <div className="absolute inset-x-0 top-0 h-[51px] border-b border-white/[0.07]" />
 
         {/* Seats */}
-        <div className="absolute left-0 top-[51px] flex">
+        <div
+          className="
+            absolute
+            left-0
+            top-[51px]
+            flex
+            gap-0
+          "
+        >
           <MemberSeat member={TEAM_MEMBERS[0]} />
           <FreeSeat />
         </div>
@@ -399,7 +433,7 @@ function InviteCard() {
 
       {/* Text */}
       <div className="mt-[13px] px-[3px]">
-        <h3 className="text-[16px] font-medium text-white">
+        <h3 className="text-[15px] font-medium text-white sm:text-[16px]">
           Invite by email.
         </h3>
 
@@ -411,23 +445,23 @@ function InviteCard() {
   )
 }
 
-
 function OffboardingCard() {
   return (
-    <div>
+    <div className="min-w-0">
       {/* Visual */}
       <div
         className="
           relative
           overflow-visible
           rounded-[12px]
-          border border-white/[0.08]
+          border
+          border-white/[0.08]
           bg-[#151515]
+
+          h-[220px]
+
+          sm:h-[252px]
         "
-        style={{
-          width: '100%',
-          height: '252px',
-        }}
       >
         {/* top bar */}
         <div className="absolute inset-x-0 top-0 h-[51px] border-b border-white/[0.07]" />
@@ -443,14 +477,22 @@ function OffboardingCard() {
         </div>
 
         {/* Free seat */}
-        <div className="absolute left-[51%] top-[51px]">
+        <div
+          className="
+            absolute
+            left-[48%]
+            top-[51px]
+
+            sm:left-[51%]
+          "
+        >
           <FreeSeat />
         </div>
       </div>
 
       {/* Text */}
       <div className="mt-[13px] px-[3px]">
-        <h3 className="text-[16px] font-medium text-white">
+        <h3 className="text-[15px] font-medium text-white sm:text-[16px]">
           Offboarding.
         </h3>
 
@@ -463,7 +505,6 @@ function OffboardingCard() {
     </div>
   )
 }
-
 
 /* =========================================================
    PRIVACY NOTICE
@@ -480,16 +521,24 @@ function PrivacyNotice() {
         border
         border-[#e6b900]
         bg-[#211f1d]
-        px-[25px]
+
+        px-4
+        py-5
+        min-h-[130px]
+
+        sm:px-[25px]
+        sm:py-0
+        sm:h-[94px]
       "
-      style={{
-        height: ADMIN_SECTION.noticeHeight,
-      }}
     >
       <div
         className="
-          flex size-[40px] shrink-0
-          items-center justify-center
+          flex
+          w-10
+          h-10
+          shrink-0
+          items-center
+          justify-center
           rounded-full
           bg-[#403924]
           text-[#d8b45d]
@@ -500,11 +549,15 @@ function PrivacyNotice() {
 
       <p
         className="
-          ml-[20px]
-          max-w-[680px]
-          text-[14px]
-          leading-[1.6]
+          ml-4
+          text-[12px]
+          leading-[1.65]
           text-white/75
+
+          sm:ml-5
+          sm:max-w-[680px]
+          sm:text-[14px]
+          sm:leading-[1.6]
         "
       >
         What admins deliberately do not get is a window into a teammate’s
@@ -513,7 +566,6 @@ function PrivacyNotice() {
     </div>
   )
 }
-
 
 /* =========================================================
    MAIN SECTION
@@ -563,34 +615,47 @@ export default function TeamAdministrationSection() {
         w-full
         overflow-hidden
         bg-[#0d0d0d]
+
         px-4
-        py-[80px]
+        py-[64px]
+
         sm:px-6
+        sm:py-[80px]
+
+        lg:py-[100px]
       "
     >
-      {/* Very subtle background glow */}
+      {/* Background glow */}
       <div
         className="
           pointer-events-none
           absolute
           left-1/2
           top-1/2
-          size-[600px]
+
+          w-[380px]
+          h-[380px]
+
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
           bg-white/[0.008]
           blur-[100px]
+
+          sm:w-[600px]
+          sm:h-[600px]
         "
         aria-hidden="true"
       />
 
       <div
-        className="relative mx-auto w-full"
-        style={{
-          width: ADMIN_SECTION.width,
-          maxWidth: ADMIN_SECTION.maxWidth,
-        }}
+        className="
+          relative
+          mx-auto
+          w-full
+
+          max-w-[820px]
+        "
       >
         {/* =============================================
             HEADING
@@ -602,6 +667,7 @@ export default function TeamAdministrationSection() {
             transition-all
             duration-700
             ease-[cubic-bezier(0.22,1,0.36,1)]
+
             ${
               visible
                 ? 'translate-y-0 opacity-100'
@@ -609,7 +675,15 @@ export default function TeamAdministrationSection() {
             }
           `}
         >
-          <h2 className="text-[16px] font-medium text-white">
+          <h2
+            className="
+              text-[15px]
+              font-medium
+              text-white
+
+              sm:text-[16px]
+            "
+          >
             Seats you control.
           </h2>
 
@@ -617,7 +691,6 @@ export default function TeamAdministrationSection() {
             Buy the seats you need, add more when you hire.
           </p>
         </div>
-
 
         {/* =============================================
             TWO DEMO CARDS
@@ -627,11 +700,15 @@ export default function TeamAdministrationSection() {
           className={`
             grid
             grid-cols-1
-            gap-[24px]
+            gap-8
+
+            sm:grid-cols-2
+            sm:gap-[24px]
+
             transition-all
             duration-800
             ease-[cubic-bezier(0.22,1,0.36,1)]
-            sm:grid-cols-2
+
             ${
               visible
                 ? 'translate-y-0 opacity-100'
@@ -646,17 +723,18 @@ export default function TeamAdministrationSection() {
           <OffboardingCard />
         </div>
 
-
         {/* =============================================
             PRIVACY NOTICE
             ============================================= */}
 
         <div
           className={`
-            mt-[27px]
+            mt-7
+
             transition-all
             duration-800
             ease-[cubic-bezier(0.22,1,0.36,1)]
+
             ${
               visible
                 ? 'translate-y-0 opacity-100'
