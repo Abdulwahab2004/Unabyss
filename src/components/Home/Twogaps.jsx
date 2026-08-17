@@ -1,9 +1,55 @@
 import { ArrowUpRight } from 'lucide-react'
 import eye from '../../assets/logos/eye.png'
 
-const AI_TOOLS = ['unabyss', 'chatgpt', 'cube', 'sparkle']
-const DATA_SOURCES = ['Slack', 'Gmail', 'Notion', 'Calendar', 'GitHub']
 
+const AI_TOOLS = [
+  {
+    name: 'unabyss',
+    logoUrl: 'https://your-domain.com/logos/unabyss.svg',
+  },
+  {
+    name: 'chatgpt',
+    logoUrl: 'https://cdn.simpleicons.org/openai',
+  },
+  {
+    name: 'cube',
+    logoUrl: 'https://your-domain.com/logos/cube.svg',
+  },
+  {
+    name: 'sparkle',
+    logoUrl: 'https://your-domain.com/logos/sparkle.svg',
+  },
+]
+
+
+const DATA_SOURCES = [
+  {
+    name: 'Slack',
+    logoUrl: 'https://cdn.simpleicons.org/slack',
+  },
+  {
+    name: 'Gmail',
+    logoUrl: 'https://cdn.simpleicons.org/gmail',
+  },
+  {
+    name: 'Notion',
+    logoUrl: 'https://cdn.simpleicons.org/notion',
+  },
+  {
+    name: 'Calendar',
+    logoUrl: 'https://cdn.simpleicons.org/googlecalendar',
+  },
+  {
+    name: 'GitHub',
+    logoUrl: 'https://cdn.simpleicons.org/github',
+  },
+]
+
+/*
+|--------------------------------------------------------------------------
+| EYE IMAGE
+|--------------------------------------------------------------------------
+*/
 function EyeImage() {
   return (
     <div className="relative w-full overflow-hidden rounded-l-3xl bg-black">
@@ -11,35 +57,76 @@ function EyeImage() {
         src={eye}
         alt="AI context visualization"
         loading="lazy"
-        className="block w-full h-auto object-contain"
+        className="block h-auto w-full object-contain"
       />
     </div>
   )
 }
 
-function IconChip({ children }) {
+/*
+|--------------------------------------------------------------------------
+| ICON CHIP
+|--------------------------------------------------------------------------
+*/
+function IconChip({ tool }) {
   return (
-    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5">
-      {children}
+    <div
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 overflow-hidden"
+      title={tool.name}
+    >
+      {tool.logoUrl ? (
+        <img
+          src={tool.logoUrl}
+          alt=""
+          loading="lazy"
+          className="h-5 w-5 object-contain"
+        />
+      ) : (
+        <span
+          className="h-5 w-5 rounded-full bg-white/15"
+          aria-hidden="true"
+        />
+      )}
     </div>
   )
 }
 
-function ToolPill({ label }) {
+/*
+|--------------------------------------------------------------------------
+| TOOL PILL
+|--------------------------------------------------------------------------
+*/
+function ToolPill({ source }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm text-white/70">
-      <span
-        className="h-4 w-4 shrink-0 rounded-full bg-white/15"
-        aria-hidden="true"
-      />
-      {label}
+      {source.logoUrl ? (
+        <img
+          src={source.logoUrl}
+          alt=""
+          loading="lazy"
+          className="h-4 w-4 shrink-0 object-contain"
+        />
+      ) : (
+        <span
+          className="h-4 w-4 shrink-0 rounded-full bg-white/15"
+          aria-hidden="true"
+        />
+      )}
+
+      {source.name}
     </span>
   )
 }
 
+/*
+|--------------------------------------------------------------------------
+| MAIN COMPONENT
+|--------------------------------------------------------------------------
+*/
 export default function TwoGaps() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24">
+
       {/* Section heading */}
       <p className="mb-3 text-center text-xs uppercase tracking-widest text-white/40">
         The gap
@@ -51,16 +138,19 @@ export default function TwoGaps() {
 
       {/* Two gap cards */}
       <div className="mb-4 grid gap-4 md:grid-cols-2">
-        {/* AI tools card */}
+
+        {/* ================================================================
+            AI TOOLS CARD
+        ================================================================= */}
+
         <div className="rounded-2xl border border-white/10 bg-badge p-8">
+
           <div className="mb-8 flex gap-3 overflow-hidden">
             {AI_TOOLS.map((tool) => (
-              <IconChip key={tool}>
-                <span
-                  className="h-5 w-5 rounded-full bg-white/15"
-                  aria-hidden="true"
-                />
-              </IconChip>
+              <IconChip
+                key={tool.name}
+                tool={tool}
+              />
             ))}
           </div>
 
@@ -73,13 +163,21 @@ export default function TwoGaps() {
             or Gemini too - and each is a blank slate to the rest. What you
             figured out in one is invisible to the next.
           </p>
+
         </div>
 
-        {/* Data sources card */}
+        {/* ================================================================
+            DATA SOURCES CARD
+        ================================================================= */}
+
         <div className="rounded-2xl border border-white/10 bg-badge p-8">
+
           <div className="mb-8 flex flex-wrap gap-2">
             {DATA_SOURCES.map((source) => (
-              <ToolPill key={source} label={source} />
+              <ToolPill
+                key={source.name}
+                source={source}
+              />
             ))}
           </div>
 
@@ -92,11 +190,16 @@ export default function TwoGaps() {
             but AI can't extract information from there, so you keep
             re-explaining what's already written down somewhere.
           </p>
+
         </div>
       </div>
 
-      {/* Bottom feature card */}
+      {/* ================================================================
+          BOTTOM FEATURE CARD
+      ================================================================= */}
+
       <div className="grid overflow-hidden rounded-3xl border border-white/10 bg-badge md:grid-cols-2">
+
         {/* Eye image */}
         <div className="w-full overflow-hidden">
           <EyeImage />
@@ -104,6 +207,7 @@ export default function TwoGaps() {
 
         {/* Content */}
         <div className="flex flex-col justify-center p-8 sm:px-12">
+
           <h3 className="mb-8 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Your context is everywhere - and your AI sees none of it.
           </h3>
@@ -116,8 +220,10 @@ export default function TwoGaps() {
             Start now
             <ArrowUpRight size={18} />
           </a>
+
         </div>
       </div>
+
     </section>
   )
 }
