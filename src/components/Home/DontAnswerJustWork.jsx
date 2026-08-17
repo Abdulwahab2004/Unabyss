@@ -22,9 +22,7 @@ export default function DontAnswerJustWork() {
 
       {/* Two cards */}
       <div className="grid items-stretch gap-4 md:grid-cols-2">
-        {/* ================================================================ */}
-        {/* WITHOUT UNABYSS */}
-        {/* ================================================================ */}
+        {/* without unabys */} 
 
         <div
           className="
