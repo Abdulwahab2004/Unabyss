@@ -59,3 +59,7 @@ body { @apply bg-bg text-white font-sans antialiased; }
 
 
 
+/* Hide horizontal scrollbar but keep horizontal scrolling */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
