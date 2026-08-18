@@ -136,11 +136,6 @@ function ToolIcon({ tool }) {
   )
 }
 
-/*
-|--------------------------------------------------------------------------
-| USE CASE CARD
-|--------------------------------------------------------------------------
-*/
 function UseCaseCard({ item }) {
   return (
     <div className="bg-badge border border-white/10 rounded-2xl p-6 flex flex-col h-full hover:border-white/20 transition-colors">
@@ -172,11 +167,7 @@ function UseCaseCard({ item }) {
   )
 }
 
-/*
-|--------------------------------------------------------------------------
-| DEMO VIDEO CARD
-|--------------------------------------------------------------------------
-*/
+
 function DemoVideoCard() {
   const videoRef = useRef(null)
   const [muted, setMuted] = useState(true)
@@ -370,14 +361,8 @@ function DemoVideoCard() {
         </div>
 
         {/* 
-        |--------------------------------------------------------------------------
-        | TALKING HEAD VIDEO
-        |--------------------------------------------------------------------------
-        | Change VIDEO_URL at the top of this file.
-        |
-        | Example:
-        | const VIDEO_URL = 'https://example.com/founder.mp4'
-        |--------------------------------------------------------------------------
+    
+     TALKING HEAD VIDEO
         */}
         <div className="absolute -bottom-2 left-2 z-20">
           <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-black bg-black">
@@ -421,11 +406,7 @@ function DemoVideoCard() {
   )
 }
 
-/*
-|--------------------------------------------------------------------------
-| MAIN COMPONENT
-|--------------------------------------------------------------------------
-*/
+
 export default function BuiltForHowYouWork() {
   return (
     <section className="px-6 py-24 max-w-6xl mx-auto">
