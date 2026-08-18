@@ -63,3 +63,16 @@ body { @apply bg-bg text-white font-sans antialiased; }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

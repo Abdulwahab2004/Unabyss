@@ -1,0 +1,123 @@
+import SpotlightContainer from "../SpotLightContainer"
+const TOOLS = [
+  {
+    name: 'OpenClaw',
+    icon:"data:image/svg+xml,%3csvg%20viewBox='0%200%20120%20120'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3clinearGradient%20id='openclaw__lobster-gradient'%20x1='0%25'%20y1='0%25'%20x2='100%25'%20y2='100%25'%3e%3cstop%20offset='0%25'%20stop-color='%23ff4d4d'/%3e%3cstop%20offset='100%25'%20stop-color='%23991b1b'/%3e%3c/linearGradient%3e%3c/defs%3e%3c!--Body--%3e%3cpath%20d='M60%2010%20C30%2010%2015%2035%2015%2055%20C15%2075%2030%2095%2045%20100%20L45%20110%20L55%20110%20L55%20100%20C55%20100%2060%20102%2065%20100%20L65%20110%20L75%20110%20L75%20100%20C90%2095%20105%2075%20105%2055%20C105%2035%2090%2010%2060%2010Z'%20fill='url(%23openclaw__lobster-gradient)'/%3e%3c!--Left%20Claw--%3e%3cpath%20d='M20%2045%20C5%2040%200%2050%205%2060%20C10%2070%2020%2065%2025%2055%20C28%2048%2025%2045%2020%2045Z'%20fill='url(%23openclaw__lobster-gradient)'/%3e%3c!--Right%20Claw--%3e%3cpath%20d='M100%2045%20C115%2040%20120%2050%20115%2060%20C110%2070%20100%2065%2095%2055%20C92%2048%2095%2045%20100%2045Z'%20fill='url(%23openclaw__lobster-gradient)'/%3e%3c!--Antenna--%3e%3cpath%20d='M45%2015%20Q35%205%2030%208'%20stroke='%23ff4d4d'%20stroke-width='3'%20stroke-linecap='round'/%3e%3cpath%20d='M75%2015%20Q85%205%2090%208'%20stroke='%23ff4d4d'%20stroke-width='3'%20stroke-linecap='round'/%3e%3c!--Eyes--%3e%3ccircle%20cx='45'%20cy='35'%20r='6'%20fill='%23050810'/%3e%3ccircle%20cx='75'%20cy='35'%20r='6'%20fill='%23050810'/%3e%3ccircle%20cx='46'%20cy='34'%20r='2.5'%20fill='%2300e5cc'/%3e%3ccircle%20cx='76'%20cy='34'%20r='2.5'%20fill='%2300e5cc'/%3e%3c/svg%3e",
+  },
+  {
+    name: 'Google Drive',
+ icon:"data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2087.3%2078'%3e%3cpath%20fill='%230066da'%20d='m6.6%2066.85%203.85%206.65c.8%201.4%201.95%202.5%203.3%203.3L27.5%2053H0c0%201.55.4%203.1%201.2%204.5z'/%3e%3cpath%20fill='%2300ac47'%20d='M43.65%2025%2029.9%201.2c-1.35.8-2.5%201.9-3.3%203.3l-25.4%2044A9.06%209.06%200%200%200%200%2053h27.5z'/%3e%3cpath%20fill='%23ea4335'%20d='M73.55%2076.8c1.35-.8%202.5-1.9%203.3-3.3l1.6-2.75L86.1%2057.5c.8-1.4%201.2-2.95%201.2-4.5H59.798l5.852%2011.5z'/%3e%3cpath%20fill='%2300832d'%20d='M43.65%2025%2057.4%201.2C56.05.4%2054.5%200%2052.9%200H34.4c-1.6%200-3.15.45-4.5%201.2z'/%3e%3cpath%20fill='%232684fc'%20d='M59.8%2053H27.5L13.75%2076.8c1.35.8%202.9%201.2%204.5%201.2h50.8c1.6%200%203.15-.45%204.5-1.2z'/%3e%3cpath%20fill='%23ffba00'%20d='m73.4%2026.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65%2025%2059.8%2053h27.45c0-1.55-.4-3.1-1.2-4.5z'/%3e%3c/svg%3e",
+ },
+  {
+    name: 'Claude',
+  icon:"data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='256'%20height='257'%20preserveAspectRatio='xMidYMid'%20viewBox='0%200%20256%20257'%3e%3cpath%20fill='%23D97757'%20d='m50.228%20170.321%2050.357-28.257.843-2.463-.843-1.361h-2.462l-8.426-.518-28.775-.778-24.952-1.037-24.175-1.296-6.092-1.297L0%20125.796l.583-3.759%205.12-3.434%207.324.648%2016.202%201.101%2024.304%201.685%2017.629%201.037%2026.118%202.722h4.148l.583-1.685-1.426-1.037-1.101-1.037-25.147-17.045-27.22-18.017-14.258-10.37-7.713-5.25-3.888-4.925-1.685-10.758%207-7.713%209.397.649%202.398.648%209.527%207.323%2020.35%2015.75L94.817%2091.9l3.889%203.24%201.555-1.102.195-.777-1.75-2.917-14.453-26.118-15.425-26.572-6.87-11.018-1.814-6.61c-.648-2.723-1.102-4.991-1.102-7.778l7.972-10.823L71.42%200%2082.05%201.426l4.472%203.888%206.61%2015.101%2010.694%2023.786%2016.591%2032.34%204.861%209.592%202.592%208.879.973%202.722h1.685v-1.556l1.36-18.211%202.528-22.36%202.463-28.776.843-8.1%204.018-9.722%207.971-5.25%206.222%202.981%205.12%207.324-.713%204.73-3.046%2019.768-5.962%2030.98-3.889%2020.739h2.268l2.593-2.593%2010.499-13.934%2017.628-22.036%207.778-8.749%209.073-9.657%205.833-4.601h11.018l8.1%2012.055-3.628%2012.443-11.342%2014.388-9.398%2012.184-13.48%2018.147-8.426%2014.518.778%201.166%202.01-.194%2030.46-6.481%2016.462-2.982%2019.637-3.37%208.88%204.148.971%204.213-3.5%208.62-20.998%205.184-24.628%204.926-36.682%208.685-.454.324.519.648%2016.526%201.555%207.065.389h17.304l32.21%202.398%208.426%205.574%205.055%206.805-.843%205.184-12.962%206.611-17.498-4.148-40.83-9.721-14-3.5h-1.944v1.167l11.666%2011.406%2021.387%2019.314%2026.767%2024.887%201.36%206.157-3.434%204.86-3.63-.518-23.526-17.693-9.073-7.972-20.545-17.304h-1.36v1.814l4.73%206.935%2025.017%2037.59%201.296%2011.536-1.814%203.76-6.481%202.268-7.13-1.297-14.647-20.544-15.1-23.138-12.185-20.739-1.49.843-7.194%2077.448-3.37%203.953-7.778%202.981-6.48-4.925-3.436-7.972%203.435-15.749%204.148-20.544%203.37-16.333%203.046-20.285%201.815-6.74-.13-.454-1.49.194-15.295%2020.999-23.267%2031.433-18.406%2019.702-4.407%201.75-7.648-3.954.713-7.064%204.277-6.286%2025.47-32.405%2015.36-20.092%209.917-11.6-.065-1.686h-.583L44.07%20198.125l-12.055%201.555-5.185-4.86.648-7.972%202.463-2.593%2020.35-13.999-.064.065Z'/%3e%3c/svg%3e",
+
+},
+  {
+    name: 'Cursor',
+  icon:"data:image/svg+xml,%3c?xml%20version=%271.0%27%20encoding=%27UTF-8%27?%3e%3csvg%20id=%27cursor_dark__Ebene_1%27%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20viewBox=%270%200%20466.73%20532.09%27%3e%3c!--Generator:%20Adobe%20Illustrator%2029.6.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%202.1.1%20Build%209)--%3e%3cdefs%3e%3cstyle%3e.cursor_dark__st0{fill:%23edecec}%3c/style%3e%3c/defs%3e%3cpath%20class=%27cursor_dark__st0%27%20d=%27M457.43,125.94L244.42,2.96c-6.84-3.95-15.28-3.95-22.12,0L9.3,125.94c-5.75,3.32-9.3,9.46-9.3,16.11v247.99c0,6.65,3.55,12.79,9.3,16.11l213.01,122.98c6.84,3.95,15.28,3.95,22.12,0l213.01-122.98c5.75-3.32,9.3-9.46,9.3-16.11v-247.99c0-6.65-3.55-12.79-9.3-16.11h-.01ZM444.05,151.99l-205.63,356.16c-1.39,2.4-5.06,1.42-5.06-1.36v-233.21c0-4.66-2.49-8.97-6.53-11.31L24.87,145.67c-2.4-1.39-1.42-5.06,1.36-5.06h411.26c5.84,0,9.49,6.33,6.57,11.39h-.01Z%27/%3e%3c/svg%3e",
+},
+  {
+    name: 'Gemeni',
+ icon:"data:image/svg+xml,%3csvg%20viewBox='0%200%20296%20298'%20xmlns='http://www.w3.org/2000/svg'%20width='296'%20height='298'%20fill='none'%3e%3cmask%20id='gemini__a'%20width='296'%20height='298'%20x='0'%20y='0'%20maskUnits='userSpaceOnUse'%20style='mask-type:alpha'%3e%3cpath%20fill='%233186FF'%20d='M141.201%204.886c2.282-6.17%2011.042-6.071%2013.184.148l5.985%2017.37a184.004%20184.004%200%200%200%20111.257%20113.049l19.304%206.997c6.143%202.227%206.156%2010.91.02%2013.155l-19.35%207.082a184.001%20184.001%200%200%200-109.495%20109.385l-7.573%2020.629c-2.241%206.105-10.869%206.121-13.133.025l-7.908-21.296a184%20184%200%200%200-109.02-108.658l-19.698-7.239c-6.102-2.243-6.118-10.867-.025-13.132l20.083-7.467A183.998%20183.998%200%200%200%20133.291%2026.28l7.91-21.394Z'/%3e%3c/mask%3e%3cg%20mask='url(%23gemini__a)'%3e%3cg%20filter='url(%23gemini__b)'%3e%3cellipse%20cx='163'%20cy='149'%20fill='%233689FF'%20rx='196'%20ry='159'/%3e%3c/g%3e%3cg%20filter='url(%23gemini__c)'%3e%3cellipse%20cx='33.5'%20cy='142.5'%20fill='%23F6C013'%20rx='68.5'%20ry='72.5'/%3e%3c/g%3e%3cg%20filter='url(%23gemini__d)'%3e%3cellipse%20cx='19.5'%20cy='148.5'%20fill='%23F6C013'%20rx='68.5'%20ry='72.5'/%3e%3c/g%3e%3cg%20filter='url(%23gemini__e)'%3e%3cpath%20fill='%23FA4340'%20d='M194%2010.5C172%2082.5%2065.5%20134.333%2022.5%20135L144-66l50%2076.5Z'/%3e%3c/g%3e%3cg%20filter='url(%23gemini__f)'%3e%3cpath%20fill='%23FA4340'%20d='M190.5-12.5C168.5%2059.5%2062%20111.333%2019%20112L140.5-89l50%2076.5Z'/%3e%3c/g%3e%3cg%20filter='url(%23gemini__g)'%3e%3cpath%20fill='%2314BB69'%20d='M194.5%20279.5C172.5%20207.5%2066%20155.667%2023%20155l121.5%20201%2050-76.5Z'/%3e%3c/g%3e%3cg%20filter='url(%23gemini__h)'%3e%3cpath%20fill='%2314BB69'%20d='M196.5%20320.5C174.5%20248.5%2068%20196.667%2025%20196l121.5%20201%2050-76.5Z'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cfilter%20id='gemini__b'%20width='464'%20height='390'%20x='-69'%20y='-46'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='18'/%3e%3c/filter%3e%3cfilter%20id='gemini__c'%20width='265'%20height='273'%20x='-99'%20y='6'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='32'/%3e%3c/filter%3e%3cfilter%20id='gemini__d'%20width='265'%20height='273'%20x='-113'%20y='12'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='32'/%3e%3c/filter%3e%3cfilter%20id='gemini__e'%20width='299.5'%20height='329'%20x='-41.5'%20y='-130'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='32'/%3e%3c/filter%3e%3cfilter%20id='gemini__f'%20width='299.5'%20height='329'%20x='-45'%20y='-153'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='32'/%3e%3c/filter%3e%3cfilter%20id='gemini__g'%20width='299.5'%20height='329'%20x='-41'%20y='91'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='32'/%3e%3c/filter%3e%3cfilter%20id='gemini__h'%20width='299.5'%20height='329'%20x='-39'%20y='132'%20color-interpolation-filters='sRGB'%20filterUnits='userSpaceOnUse'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20result='effect1_foregroundBlur_69_17998'%20stdDeviation='32'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e", },
+  {
+    name: 'OpenCode',
+    icon: "data:image/svg+xml,<svg%20width='512'%20height='512'%20viewBox='0%200%20512%20512'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'><path%20d='M380.297%2071.25H118.695V439.805H380.297V71.25Z'%20fill='%23131010'/><path%20d='M348.5%20210V395H163.5V210H348.5Z'%20fill='%235A5858'/><path%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M441%20487.5H71V25H441V487.5ZM348.5%20117.5H163.5V395H348.5V117.5Z'%20fill='white'/></svg>",
+  },
+  {
+    name:"Antigravity",
+    icon:"	https://unabyss.com/_app/immutable/assets/antigravity.Dewwmm9C.svg"
+  },
+  {
+    name:"ChatGpt",
+    icon:"data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='256'%20height='260'%20preserveAspectRatio='xMidYMid'%20viewBox='0%200%20256%20260'%3e%3cpath%20fill='%23fff'%20d='M239.184%20106.203a64.716%2064.716%200%200%200-5.576-53.103C219.452%2028.459%20191%2015.784%20163.213%2021.74A65.586%2065.586%200%200%200%2052.096%2045.22a64.716%2064.716%200%200%200-43.23%2031.36c-14.31%2024.602-11.061%2055.634%208.033%2076.74a64.665%2064.665%200%200%200%205.525%2053.102c14.174%2024.65%2042.644%2037.324%2070.446%2031.36a64.72%2064.72%200%200%200%2048.754%2021.744c28.481.025%2053.714-18.361%2062.414-45.481a64.767%2064.767%200%200%200%2043.229-31.36c14.137-24.558%2010.875-55.423-8.083-76.483Zm-97.56%20136.338a48.397%2048.397%200%200%201-31.105-11.255l1.535-.87%2051.67-29.825a8.595%208.595%200%200%200%204.247-7.367v-72.85l21.845%2012.636c.218.111.37.32.409.563v60.367c-.056%2026.818-21.783%2048.545-48.601%2048.601Zm-104.466-44.61a48.345%2048.345%200%200%201-5.781-32.589l1.534.921%2051.722%2029.826a8.339%208.339%200%200%200%208.441%200l63.181-36.425v25.221a.87.87%200%200%201-.358.665l-52.335%2030.184c-23.257%2013.398-52.97%205.431-66.404-17.803ZM23.549%2085.38a48.499%2048.499%200%200%201%2025.58-21.333v61.39a8.288%208.288%200%200%200%204.195%207.316l62.874%2036.272-21.845%2012.636a.819.819%200%200%201-.767%200L41.353%20151.53c-23.211-13.454-31.171-43.144-17.804-66.405v.256Zm179.466%2041.695-63.08-36.63L161.73%2077.86a.819.819%200%200%201%20.768%200l52.233%2030.184a48.6%2048.6%200%200%201-7.316%2087.635v-61.391a8.544%208.544%200%200%200-4.4-7.213Zm21.742-32.69-1.535-.922-51.619-30.081a8.39%208.39%200%200%200-8.492%200L99.98%2099.808V74.587a.716.716%200%200%201%20.307-.665l52.233-30.133a48.652%2048.652%200%200%201%2072.236%2050.391v.205ZM88.061%20139.097l-21.845-12.585a.87.87%200%200%201-.41-.614V65.685a48.652%2048.652%200%200%201%2079.757-37.346l-1.535.87-51.67%2029.825a8.595%208.595%200%200%200-4.246%207.367l-.051%2072.697Zm11.868-25.58%2028.138-16.217%2028.188%2016.218v32.434l-28.086%2016.218-28.188-16.218-.052-32.434Z'/%3e%3c/svg%3e"
+  },
+  {
+    name:"Fathom",
+    icon:"data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Layer_1'%20data-name='Layer%201'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%201000'%3e%3cdefs%3e%3cstyle%3e%20.cls-1%20{%20fill:%20%2300beff;%20}%20.cls-2%20{%20fill:%20%23007299;%20}%20%3c/style%3e%3c/defs%3e%3cpath%20class='cls-2'%20d='M0,668.7v205.78c0,53.97,34.24,102.88,85.8,119.08,87.48,27.49,167.88-36.99,167.88-120.22v-77.45L0,668.7Z'/%3e%3cpath%20class='cls-1'%20d='M873.72,626.07c-19.05,0-38.38-4.3-56.58-13.38L72.78,241.43C11.15,210.69-17.51,136.6,11.18,74.05,41.2,8.59,119.26-18.53,183.23,13.38l744.25,371.21c62.45,31.15,91,109.08,59.79,171.43-22.22,44.38-67.02,70.05-113.55,70.05Z'/%3e%3cpath%20class='cls-1'%20d='M500.09,813.66c-19.05,0-38.38-4.3-56.58-13.38l-370.72-184.9c-61.63-30.74-90.29-104.82-61.61-167.37,30.02-65.46,108.08-92.59,172.06-60.68l370.62,184.85c62.45,31.15,91,109.08,59.79,171.43-22.22,44.38-67.02,70.05-113.55,70.05Z'/%3e%3c/svg%3e",
+  },
+  {
+    name:"OneNote",
+    icon:"data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='none'%20viewBox='4%206%2035%2035.999'%3e%3cpath%20fill='url(%23microsoft_onenote__a)'%20d='M9%2033.545A6.545%206.545%200%200%201%2015.546%2027H39v11.727a3.273%203.273%200%200%201-3.273%203.272l-20.592-.005A6.136%206.136%200%200%201%209%2035.858v-2.313Z'/%3e%3cpath%20fill='url(%23microsoft_onenote__b)'%20d='m25%2014.5%2014-.5v12.727A3.273%203.273%200%200%201%2035.727%2030H25V14.5Z'/%3e%3cpath%20fill='url(%23microsoft_onenote__c)'%20d='M9.005%2011.999a6%206%200%200%201%206-5.999H35.5A3.5%203.5%200%200%201%2039%209.5v5a3.5%203.5%200%200%201-3.5%203.5h-3a3.5%203.5%200%200%200-3.5%203.5v5a3.5%203.5%200%200%201-3.5%203.5H15a6%206%200%200%200-6%206l.005-24.001Z'/%3e%3cpath%20fill='url(%23microsoft_onenote__d)'%20d='M9.005%2011.999a6%206%200%200%201%206-5.999H35.5A3.5%203.5%200%200%201%2039%209.5v5a3.5%203.5%200%200%201-3.5%203.5h-3a3.5%203.5%200%200%200-3.5%203.5v5a3.5%203.5%200%200%201-3.5%203.5H15a6%206%200%200%200-6%206l.005-24.001Z'/%3e%3crect%20width='16'%20height='16'%20x='4'%20y='23'%20fill='url(%23microsoft_onenote__e)'%20rx='3.25'/%3e%3crect%20width='16'%20height='16'%20x='4'%20y='23'%20fill='url(%23microsoft_onenote__f)'%20fill-opacity='.8'%20rx='3.25'/%3e%3cpath%20fill='%23fff'%20d='M16.11%2035.571h-2.077l-3.766-5.642c-.107-.17-.196-.317-.268-.44a4.047%204.047%200%200%201-.166-.319h-.025c.008.162.015.366.019.612.004.247.006.536.006.867v4.922H7.89V26.43h2.217l3.626%205.464c.077.123.151.248.223.376.077.123.147.246.21.37h.026a8.595%208.595%200%200%201-.019-.472%2039.862%2039.862%200%200%201-.006-.784v-4.954h1.943v9.142Z'/%3e%3cdefs%3e%3cradialGradient%20id='microsoft_onenote__a'%20cx='0'%20cy='0'%20r='1'%20gradientTransform='matrix(47.5733%200%200%2020.0481%2038.125%2042)'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='.159'%20stop-color='%23A931D8'/%3e%3cstop%20offset='.566'%20stop-color='%236E1996'/%3e%3c/radialGradient%3e%3cradialGradient%20id='microsoft_onenote__d'%20cx='0'%20cy='0'%20r='1'%20gradientTransform='matrix(-15.08083%2024.62608%20-43.30136%20-26.51744%2041.158%204.198)'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23FFC7A3'/%3e%3cstop%20offset='.831'%20stop-color='%23DE67FD'%20stop-opacity='0'/%3e%3c/radialGradient%3e%3cradialGradient%20id='microsoft_onenote__e'%20cx='0'%20cy='0'%20r='1'%20gradientTransform='rotate(45%20-25.763%2016.328)%20scale(22.6274)'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='.072'%20stop-color='%23AC13EB'/%3e%3cstop%20offset='.879'%20stop-color='%23580087'/%3e%3c/radialGradient%3e%3cradialGradient%20id='microsoft_onenote__f'%20cx='0'%20cy='0'%20r='1'%20gradientTransform='matrix(0%2011.2%20-12.9%200%2012%2032.6)'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='.585'%20stop-color='%23841FB0'%20stop-opacity='0'/%3e%3cstop%20offset='.969'%20stop-color='%23D373FC'/%3e%3c/radialGradient%3e%3clinearGradient%20id='microsoft_onenote__b'%20x1='45.284'%20x2='28.013'%20y1='22.752'%20y2='14.022'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='.217'%20stop-color='%23CA59F7'/%3e%3cstop%20offset='.888'%20stop-color='%23691A90'/%3e%3c/linearGradient%3e%3clinearGradient%20id='microsoft_onenote__c'%20x1='40.327'%20x2='9.007'%20y1='13.764'%20y2='13.764'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='.807'%20stop-color='%23DE66FF'/%3e%3cstop%20offset='1'%20stop-color='%23FCB1FF'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e",
+  },
+  {
+    name:"Google Calender",
+    icon:"data:image/svg+xml,%3csvg%20width='512'%20height='512'%20viewBox='0%200%20512%20512'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23google_calendar__clip0_5072_3766)'%3e%3cpath%20d='M390.736%20121.264H121.264V390.736H390.736V121.264Z'%20fill='white'/%3e%3cpath%20d='M390.736%20512L512%20390.736L451.368%20380.392L390.736%20390.736L379.67%20446.196L390.736%20512Z'%20fill='%23EA4335'/%3e%3cpath%20d='M0%20390.736V471.578C0%20493.912%2018.088%20512%2040.42%20512H121.264L133.714%20451.368L121.264%20390.736L55.198%20380.392L0%20390.736Z'%20fill='%23188038'/%3e%3cpath%20d='M512%20121.264V40.42C512%2018.088%20493.912%200%20471.58%200H390.736C383.36%2030.072%20379.671%2052.2027%20379.67%2066.392C379.67%2080.58%20383.359%2098.8707%20390.736%20121.264C417.556%20128.944%20437.767%20132.784%20451.368%20132.784C464.969%20132.784%20485.18%20128.945%20512%20121.264Z'%20fill='%231967D2'/%3e%3cpath%20d='M512%20121.264H390.736V390.736H512V121.264Z'%20fill='%23FBBC04'/%3e%3cpath%20d='M390.736%20390.736H121.264V512H390.736V390.736Z'%20fill='%2334A853'/%3e%3cpath%20d='M390.736%200H40.422C18.088%200%200%2018.088%200%2040.42V390.736H121.264V121.264H390.736V0Z'%20fill='%234285F4'/%3e%3cpath%20d='M176.54%20330.308C166.468%20323.504%20159.494%20313.568%20155.688%20300.428L179.066%20290.796C181.186%20298.88%20184.891%20305.145%20190.182%20309.592C195.436%20314.038%20201.836%20316.228%20209.314%20316.228C216.959%20316.228%20223.527%20313.903%20229.018%20309.254C234.51%20304.606%20237.272%20298.678%20237.272%20291.504C237.272%20284.16%20234.375%20278.164%20228.582%20273.516C222.788%20268.868%20215.512%20266.544%20206.822%20266.544H193.314V243.404H205.44C212.917%20243.404%20219.216%20241.382%20224.336%20237.338C229.456%20233.298%20232.016%20227.772%20232.016%20220.732C232.016%20214.468%20229.726%20209.482%20225.146%20205.744C220.566%20202.004%20214.77%20200.118%20207.73%20200.118C200.858%20200.118%20195.402%20201.938%20191.36%20205.608C187.319%20209.289%20184.282%20213.937%20182.534%20219.116L159.394%20209.482C162.458%20200.792%20168.084%20193.112%20176.336%20186.476C184.588%20179.84%20195.132%20176.506%20207.932%20176.506C217.398%20176.506%20225.92%20178.326%20233.466%20181.996C241.01%20185.668%20246.938%20190.754%20251.216%20197.222C255.496%20203.722%20257.616%20210.998%20257.616%20219.082C257.616%20227.334%20255.63%20234.308%20251.656%20240.034C247.682%20245.76%20242.796%20250.138%20237.002%20253.204V254.584C244.483%20257.669%20250.982%20262.735%20255.798%20269.238C260.682%20275.806%20263.142%20283.654%20263.142%20292.818C263.142%20301.978%20260.816%20310.164%20256.168%20317.338C251.52%20324.514%20245.088%20330.172%20236.934%20334.282C228.75%20338.392%20219.554%20340.482%20209.348%20340.482C197.524%20340.514%20186.612%20337.112%20176.54%20330.308ZM320.132%20214.298L294.466%20232.858L281.632%20213.39L327.678%20180.176H345.328V336.842H320.132V214.298Z'%20fill='%234285F4'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='google_calendar__clip0_5072_3766'%3e%3crect%20width='512'%20height='512'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
+  },
+  {
+    name:"Gmail",
+    icon:"data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%2049.4%20512%20399.42'%3e%3cg%20fill='none'%20fill-rule='evenodd'%3e%3cg%20fill-rule='nonzero'%3e%3cpath%20fill='%234285f4'%20d='M34.91%20448.818h81.454V251L0%20163.727V413.91c0%2019.287%2015.622%2034.91%2034.91%2034.91z'/%3e%3cpath%20fill='%2334a853'%20d='M395.636%20448.818h81.455c19.287%200%2034.909-15.622%2034.909-34.909V163.727L395.636%20251z'/%3e%3cpath%20fill='%23fbbc04'%20d='M395.636%2099.727V251L512%20163.727v-46.545c0-43.142-49.25-67.782-83.782-41.891z'/%3e%3c/g%3e%3cpath%20fill='%23ea4335'%20d='M116.364%20251V99.727L256%20204.455%20395.636%2099.727V251L256%20355.727z'/%3e%3cpath%20fill='%23c5221f'%20fill-rule='nonzero'%20d='M0%20117.182v46.545L116.364%20251V99.727L83.782%2075.291C49.25%2049.4%200%2074.04%200%20117.18z'/%3e%3c/g%3e%3c/svg%3e",
+  },{
+    name:"X / TWITTER",
+    icon:"data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='1227'%20fill='none'%20viewBox='0%200%201200%201227'%3e%3cpath%20fill='%23fff'%20d='M714.163%20519.284%201160.89%200h-105.86L667.137%20450.887%20357.328%200H0l468.492%20681.821L0%201226.37h105.866l409.625-476.152%20327.181%20476.152H1200L714.137%20519.284h.026ZM569.165%20687.828l-47.468-67.894-377.686-540.24h162.604l304.797%20435.991%2047.468%2067.894%20396.2%20566.721H892.476L569.165%20687.854v-.026Z'/%3e%3c/svg%3e",
+  }
+]
+
+function LogoItem({ tool }) {
+  return (
+    <div
+      className={`flex items-center gap-2 px-3 py-1.5 rounded-full shrink-0 ${
+        tool.dimmed ? 'opacity-40' : ''
+      }`}
+    >
+      <div
+        className="w-6 h-6 rounded-full bg-white/10 border border-white/10 shrink-0 flex items-center justify-center overflow-hidden"
+        aria-hidden="true"
+      >
+        {tool.icon && (
+          <img
+            src={tool.icon}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              e.currentTarget.style.display = ''
+            }}
+          />
+        )}
+      </div>
+      <span className="text-sm text-white/90 whitespace-nowrap">{tool.name}</span>
+    </div>
+  )
+}
+
+export default function LogoStrip() {
+  return (
+    <div className="max-w-5xl mx-auto mt-16">
+      <SpotlightContainer className="flex items-center gap-1 bg-badge bg-[#1d1d1d] border border-white/10 rounded-full px-2 py-2 overflow-hidden">
+      {/* <div className="flex items-center bg-badge border border-white/10 rounded-full pl-6 pr-2 py-3 overflow-hidden"> */}
+        <span className="text-[11px] font-semibold tracking-widest text-white/40 mr-4 shrink-0">
+          WORKS WITH
+        </span>
+
+        <div
+          className="flex-1 overflow-hidden"
+          style={{
+            maskImage:
+              'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+            WebkitMaskImage:
+              'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          }}
+        >
+          <div className="flex w-max animate-marquee motion-reduce:animate-none">
+            {[...TOOLS, ...TOOLS].map((tool, i) => (
+              <LogoItem key={`${tool.name}-${i}`} tool={tool} />
+            ))}
+          </div>
+        </div>
+
+        <div className="w-px h-5 bg-white/10 mx-3 shrink-0" aria-hidden="true" />
+
+       {/* <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 shrink-0">
+  <span className="text-xs font-semibold text-white/90 whitespace-nowrap opacity-70">
+    750,000+
+    <span className="pl-2 text-xs font-semibold text-white/90 whitespace-nowrap opacity-70 tracking-widest">
+      ITEMS SYNCED
+    </span>
+  </span>
+</div> */}
+      {/* </div> */}
+</SpotlightContainer>
+    </div>
+  )
+}

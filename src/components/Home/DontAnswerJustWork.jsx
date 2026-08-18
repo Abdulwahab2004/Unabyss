@@ -7,10 +7,12 @@ import {
   Mic,
   AudioWaveform,
 } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+
 
 export default function DontAnswerJustWork() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-24">
+    <section className=" mx-auto w-full max-w-6xl px-6 py-24">
       {/* Section heading */}
       <p className="mb-3 text-center text-xs uppercase tracking-widest text-white/40">
         The difference

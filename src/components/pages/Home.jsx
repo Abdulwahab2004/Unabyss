@@ -7,6 +7,11 @@ import DontAnswerJustWork from '../Home/DontAnswerJustWork'
 import ConnectOnce from '../Home/ConnectOnce'
 import WhyUnabyss from '../Home/WhyUnabyss'
 import BuiltForHowYouWork from '../Home/BuiltforHowYouWork'
+import PricingSection from '../Home/PricingSection'
+import FAQSection from '../Home/FAQsection'
+import BlogSection from '../Home/BlogSections'
+import Footer from '../how-it-works/Footer'
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -20,6 +25,11 @@ export default function Home() {
         <ConnectOnce/>
         <WhyUnabyss/>
         <BuiltForHowYouWork/>
+        <PricingSection/>
+        <FAQSection/>
+        <BlogSection/>
+        <Footer/>
+    
       </main>
     </div>
   )
