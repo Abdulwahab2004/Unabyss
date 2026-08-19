@@ -6,6 +6,7 @@ import Teams from './components/pages/Teams'
 import Login from './components/Login/Login'
 
 import Founders from './components/pages/Founders'
+import Builders from './components/pages/Builders'
 export default function App() {
   return (
     <Routes>
@@ -14,6 +15,9 @@ export default function App() {
      <Route path="teams" element={<Teams />} />
      <Route path="login" element={<Login/>}/>
      <Route path="unabyss-for-founders" element={<Founders />} />
+     <Route path="unabyss-for-builders" element={<Builders />} />
+
+
     </Routes>
   )
 }

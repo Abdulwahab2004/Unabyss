@@ -48,11 +48,7 @@ const AI_TOOLS = [
   },
 ]
 
-/*
-|--------------------------------------------------------------------------
-| SOURCE ROW
-|--------------------------------------------------------------------------
-*/
+
 function SourceRow({ source }) {
   return (
     <div className="flex items-center justify-between bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3">

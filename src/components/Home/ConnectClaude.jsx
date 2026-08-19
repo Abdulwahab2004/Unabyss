@@ -14,12 +14,7 @@ export default function ConnectClaude() {
 
   const setupMessage = "Let's set up Unabyss"
 
-  /*
-   * Scroll reveal animation
-   *
-   * The component starts hidden and animates into view
-   * when approximately 15% of the section enters the viewport.
-   */
+ 
   useEffect(() => {
     const element = sectionRef.current
 
