@@ -291,7 +291,7 @@ export default function PricingSection() {
   const [annual, setAnnual] = useState(true)
 
   return (
-    <section className="px-6 py-24 max-w-6xl mx-auto">
+    <section className="px-6 py-24 max-w-6xl mx-auto" id='pricing'>
       <p className="text-center text-xs uppercase tracking-widest text-white/40 mb-3">
         Pricing
       </p>

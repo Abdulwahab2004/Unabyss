@@ -13,7 +13,7 @@ const USE_CASES = [
 const NAV_LINKS = [
   { label: 'How it works', href: '/how-it-works' },
   { label: 'Teams', href: '/teams' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Pricing', href: '/#pricing' },
   {label:"Log in" , href : '/login' }
 ]
 
