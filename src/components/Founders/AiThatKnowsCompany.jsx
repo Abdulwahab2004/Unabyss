@@ -41,8 +41,10 @@ export default function AIThatKnowsCompany() {
             {/* BACKGROUND IMAGE SLOT — ambient gradient/photo behind the chat mockup */}
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/images/ceo-report-bg.webp')" }}
-              aria-hidden="true"
+        style={{
+  backgroundImage:
+    "url('https://unabyss.com/_app/immutable/assets/blog-cover-02.CDC1AScy.webp')",
+}}     aria-hidden="true"
             />
             <div className="absolute inset-0 bg-black/35" aria-hidden="true" />
 
@@ -121,7 +123,7 @@ export default function AIThatKnowsCompany() {
                   </div>
 
                   <span className="text-lg" aria-hidden="true">
-                    🌸
+                    
                   </span>
                 </div>
 
@@ -158,7 +160,7 @@ export default function AIThatKnowsCompany() {
                   {/* VIDEO SLOT — replace src with your talking-head clip */}
                   <video
                     ref={videoRef}
-                    src="/videos/ceo-report-talking-head.webm"
+                    src="https://unabyss.com/_app/immutable/assets/founders-a-CEO-report-without-chasing-every-update.CCwGbxFY.webm"
                     muted={muted}
                     loop
                     playsInline
