@@ -7,6 +7,8 @@ import Login from './components/Login/Login'
 
 import Founders from './components/pages/Founders'
 import Builders from './components/pages/Builders'
+import Agencies from './components/pages/Agencies'
+import GTM from './components/pages/GTM'
 export default function App() {
   return (
     <Routes>
@@ -16,6 +18,8 @@ export default function App() {
      <Route path="login" element={<Login/>}/>
      <Route path="unabyss-for-founders" element={<Founders />} />
      <Route path="unabyss-for-builders" element={<Builders />} />
+    <Route path="unabyss-for-agencies" element={<Agencies />} />
+    <Route path="unabyss-for-gtm" element={<GTM />} />
 
 
     </Routes>

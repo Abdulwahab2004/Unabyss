@@ -9,15 +9,15 @@ const SOCIALS = [
 
 
 const PRODUCT_LINKS = [
-  { label: 'How it works', href: '#' },
-  { label: 'Connect to Claude', href: '#' },
-  { label: 'Connect to ChatGPT', href: '#' },
-  { label: 'Teams', href: '#' },
-  { label: 'Try now', href: '#' },
-  { label: 'Log in', href: '#' },
-  { label: 'FAQ', href: '#' },
-  { label: 'Book a call', href: '#' },
-  { label: 'Integrations', href: '#' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'Connect to Claude', href: 'https://unabyss.com/connect-claude' },
+  { label: 'Connect to ChatGPT', href: 'https://unabyss.com/connect-chatgpt' },
+  { label: 'Teams', href: '/teams' },
+  { label: 'Try now', href: 'https://app.unabyss.com/register?_gl=1*toln0o*_ga*MTEwODMyODY1OC4xNzg1OTMzMjE0*_ga_2L1V04BRL5*czE3ODcyMjIxOTMkbzM5JGcxJHQxNzg3MjIyMjk5JGoxNSRsMCRoMA..' },
+  { label: 'Log in', href: '/login' },
+  { label: 'FAQ', href: 'https://unabyss.com/faq' },
+  { label: 'Book a call', href: 'https://unabyss.com/integrations' },
+  { label: 'Integrations', href: 'https://unabyss.com/changelog' },
   { label: 'Changelog', href: '#' },
   { label: 'Legacy', href: '#' },
 ]
@@ -31,33 +31,32 @@ const COMPARE_LINKS = [
 
 
 const USE_CASE_LINKS = [
-  { label: 'Founders', href: '#' },
-  { label: 'Builders', href: '#' },
-  { label: 'Agencies', href: '#' },
-  { label: 'GTM', href: '#' },
+  { label: 'Founders', href: '/unabyss-for-founders' },
+  { label: 'Builders', href: '/unabyss-for-builders' },
+  { label: 'Agencies', href: '/unabyss-for-agencies' },
+  { label: 'GTM', href: '/unabyss-for-gtm' },
 ]
 
 
 const RESOURCE_LINKS = [
-  { label: 'Unabyss Skills', href: '#' },
-  { label: 'Context vs memory', href: '#' },
-  { label: 'Global instructions', href: '#' },
-  { label: 'Referral program', href: '#' },
-  { label: 'MCP docs', href: '#' },
-  { label: 'Blog', href: '#' },
-  { label: 'Jobs', href: '#' },
+  { label: 'Unabyss Skills', href: 'https://unabyss.com/skills' },
+  { label: 'Context vs memory', href: 'https://unabyss.com/context-vs-memory' },
+  { label: 'Global instructions', href: 'https://unabyss.com/global-instructions' },
+  { label: 'Referral program', href: 'https://unabyss.com/referrals' },
+  { label: 'MCP docs', href: 'https://unabyss.com/mcp-docs' },
+  { label: 'Blog', href: 'https://unabyss.com/blog' },
+  { label: 'Jobs', href: 'https://unabyss.com/jobs' },
 ]
 
 
 const LEGAL_LINKS = [
-  { label: 'Terms & Conditions', href: '#' },
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Security', href: '#' },
+  { label: 'Terms & Conditions', href: 'https://unabyss.com/terms' },
+  { label: 'Privacy Policy', href: 'https://unabyss.com/privacy' },
+  { label: 'Security', href: 'https://unabyss.com/security' },
 ]
 
 
 const COMPLIANCE_BADGES = ['AICPA_SOC', 'GDPR']
-
 const VERSION_TAG = 'Unabyss-1.15.1 Karamba'
 
 // Background art behind the whole footer, layered under the dark gradient.
@@ -405,31 +404,25 @@ function StatusPill() {
 }
 
 
-/* -------------------------------------------------------------------------- */
-/* Footer                                                                     */
-/* -------------------------------------------------------------------------- */
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative overflow-hidden bg-black">
-      {/* Background image — anchored to the bottom so the art sits behind
-          the copyright strip, matching the reference */}
+    <footer className="relative overflow-hidden bg-[#0f0f0f]">
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-bottom bg-no-repeat"
         style={{ backgroundImage: `url('${FOOTER_BACKGROUND_IMAGE}')` }}
         aria-hidden="true"
       />
 
-      {/* Fade mask: solid black behind the card, fading out near the
-          bottom so the background art only glows through above the
-          copyright line instead of showing through the card too */}
+      {/* Fade mask: solid black behind the card, */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(to bottom, #000 0%, #000 78%, rgba(0,0,0,0.15) 100%)',
+            'linear-gradient(to bottom, #0f0f0f 0%, #0f0f0f 78%, rgba(15, 15, 15, 0.15) 100%)',
         }}
         aria-hidden="true"
       />

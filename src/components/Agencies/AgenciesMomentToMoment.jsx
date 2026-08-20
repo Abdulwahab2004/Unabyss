@@ -17,7 +17,7 @@ const DEMOS = [
     bgImage:
       "https://unabyss.com/_app/immutable/assets/blog-cover-10.B3rxIxal.webp",
     video:
-      "https://unabyss.com/_app/immutable/assets/builders-new-repo-scaffold.CY3S3Ak8.webm",
+      "https://unabyss.com/_app/immutable/assets/agencies-weekly-report-without-chasing-every-update.BKApf_hz.webm",
 
     thinkingLines: [
       "I'll pull your context from Unabyss and build the investor update newsletter.",
@@ -44,8 +44,9 @@ const DEMOS = [
     resultSubheading: "Key metrics",
 
     caption: {
-      title: "Weekly report without chasing every update",
-  desc:"You used to stitch pipeline, projects, financials, and HR from scattered docs and stale .md files. Ask once and Unabyss pulls this week's brief from what actually happened - calls, Slack, CRM, and billing.", },
+      title: "Drafting the investor update",
+      desc: "You open a blank chat and start typing out the quarter - the raise, the metrics, the hires, what shipped - just so the AI can help. With Unabyss it already has the quarter; you ask for the update and it writes from what actually happened.",
+    },
   },
 
   {
@@ -56,7 +57,7 @@ const DEMOS = [
     bgImage:
       "https://unabyss.com/_app/immutable/assets/blog-cover-04.DIUaWazw.webp",
     video:
-      "https://unabyss.com/_app/immutable/assets/builders-new-repo-scaffold.CY3S3Ak8.webm",
+      "https://unabyss.com/_app/immutable/assets/agencies-past-client-context-when-you-need-it-again.OWlLfOpN.webm",
 
     query: {
       label: "Request",
@@ -71,8 +72,9 @@ const DEMOS = [
     },
 
     caption: {
-      title: "Past client context when you need it again",
-  desc:"A client from last quarter used to mean digging through old SOWs and CRM notes. Ask for Bartood.ai and Unabyss surfaces terms, renewal status, and churn or upsell signals from what actually happened since - not a folder you forgot to update.",  },
+      title: "Founder LinkedIn posts without re-briefing ChatGPT",
+      desc: "You shaped the month's thought leadership in Claude, then opened ChatGPT to draft posts - and it had none of your recent wins or voice. Unabyss carries the same context into every tool, so the strategy follows you.",
+    },
   },
 ];
 
@@ -170,7 +172,7 @@ function DemoCard({ demo }) {
           sm:h-[580px]
           sm:rounded-3xl
 
-          lg:h-[620px]
+          lg:h-[550px]
         "
       >
         {/* BACKGROUND */}
@@ -258,7 +260,7 @@ function DemoCard({ demo }) {
 
             sm:px-5
             sm:pt-20
-            sm:pb-32
+            sm:pb-20
           "
         >
           <div className="h-full overflow-y-auto hide-scrollbar">
@@ -528,7 +530,7 @@ export default function UseAgentsLikeNeverBefore() {
       </p>
 
       <h2 className="mb-10 text-center text-3xl font-bold tracking-tight sm:mb-14 sm:text-4xl lg:mb-16 lg:text-5xl">
-        Use agents like never before
+       What changes, moment to moment
       </h2>
 
       <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:gap-10">

@@ -17,7 +17,7 @@ const DEMOS = [
     bgImage:
       "https://unabyss.com/_app/immutable/assets/blog-cover-10.B3rxIxal.webp",
     video:
-      "https://unabyss.com/_app/immutable/assets/builders-new-repo-scaffold.CY3S3Ak8.webm",
+      "https://unabyss.com/_app/immutable/assets/agencies-weekly-report-without-chasing-every-update.BKApf_hz.webm",
 
     thinkingLines: [
       "I'll pull your context from Unabyss and build the investor update newsletter.",
@@ -44,8 +44,8 @@ const DEMOS = [
     resultSubheading: "Key metrics",
 
     caption: {
-      title: "Weekly report without chasing every update",
-  desc:"You used to stitch pipeline, projects, financials, and HR from scattered docs and stale .md files. Ask once and Unabyss pulls this week's brief from what actually happened - calls, Slack, CRM, and billing.", },
+      title: "Marketing report without stitching the context",
+  desc:"You used to pull analytics, Slack threads, and campaign notes into a chat before you could see what was urgent. Unabyss surfaces the funnel leak, live tests, and split actions for you vs the team.",  },
   },
 
   {
@@ -56,7 +56,7 @@ const DEMOS = [
     bgImage:
       "https://unabyss.com/_app/immutable/assets/blog-cover-04.DIUaWazw.webp",
     video:
-      "https://unabyss.com/_app/immutable/assets/builders-new-repo-scaffold.CY3S3Ak8.webm",
+      "https://unabyss.com/_app/immutable/assets/agencies-past-client-context-when-you-need-it-again.OWlLfOpN.webm",
 
     query: {
       label: "Request",
@@ -71,10 +71,74 @@ const DEMOS = [
     },
 
     caption: {
-      title: "Past client context when you need it again",
-  desc:"A client from last quarter used to mean digging through old SOWs and CRM notes. Ask for Bartood.ai and Unabyss surfaces terms, renewal status, and churn or upsell signals from what actually happened since - not a folder you forgot to update.",  },
+      title: "Performance ads grounded in live positioning",
+   desc:"Your brief used to lag what changed this week - new ICP notes, a positioning shift, channel learnings. Unabyss pulls product context and what's working before the A/B variants get written.", },
   },
-];
+   {
+    id: "linkedin-strategy",
+    time: "0:33",
+    app: "Claude",
+    docTitle: "Founder LinkedIn strategy",
+    bgImage:
+      "https://unabyss.com/_app/immutable/assets/blog-cover-04.DIUaWazw.webp",
+    video:
+      "https://unabyss.com/_app/immutable/assets/agencies-past-client-context-when-you-need-it-again.OWlLfOpN.webm",
+
+    query: {
+      label: "Request",
+      json: `{ "question": "Who am I? Give my name, role, company, and key facts about what I'm working on." }`,
+    },
+
+    note: "Let me pull recent events and voice details for grounding the posts.",
+
+    secondQuery: {
+      label: "Query",
+      json: '{ "question": "What are the most recent events, milestones, product updates, wins, hires, and lessons from the last 4-6 weeks? Give me specifics I could reference in LinkedIn posts." }',
+    },
+
+    caption: {
+      title: "Performance ads grounded in live positioning",
+  desc:"Your brief used to lag what changed this week - new ICP notes, a positioning shift, channel learnings. Unabyss pulls product context and what's working before the A/B variants get written.",  },
+  },
+    {
+    id: "investor-update",
+    time: "0:19",
+    app: "ChatGPT",
+    docTitle: "Investor update newsletter",
+    bgImage:
+      "https://unabyss.com/_app/immutable/assets/blog-cover-10.B3rxIxal.webp",
+    video:
+      "https://unabyss.com/_app/immutable/assets/agencies-weekly-report-without-chasing-every-update.BKApf_hz.webm",
+
+    thinkingLines: [
+      "I'll pull your context from Unabyss and build the investor update newsletter.",
+      "Finding tools",
+      "Finding tools",
+    ],
+
+    steps: [
+      {
+        label: "Whoami",
+        status:
+          "Finished We're still learning about you. Personal context will be available shortly.",
+      },
+    ],
+
+    note: "Let me try a direct query to see what context is available.",
+
+    query: {
+      label: "Query",
+      json: '{ "question":"What are the biggest recent wins, milestones, and achievements for my company and product? Include metrics, launches, funding, and traction." }',
+    },
+
+    resultHeading: "Einstein AI - Investor Update, June 2025",
+    resultSubheading: "Key metrics",
+
+    caption: {
+      title: "Outbound cadences aimed at real buying signals",
+  desc:"Generic sequences blast the wrong accounts. Unabyss grounds your ICPs, buying signals, and disqualifiers in real deals - so the email, LinkedIn, and call cadences target the prospects most likely to close.",  },
+  },
+ ];
 
 function TalkingHeadVideo({ video }) {
   const videoRef = useRef(null);
@@ -170,7 +234,7 @@ function DemoCard({ demo }) {
           sm:h-[580px]
           sm:rounded-3xl
 
-          lg:h-[620px]
+          lg:h-[550px]
         "
       >
         {/* BACKGROUND */}
@@ -258,7 +322,7 @@ function DemoCard({ demo }) {
 
             sm:px-5
             sm:pt-20
-            sm:pb-32
+            sm:pb-20
           "
         >
           <div className="h-full overflow-y-auto hide-scrollbar">
@@ -528,7 +592,7 @@ export default function UseAgentsLikeNeverBefore() {
       </p>
 
       <h2 className="mb-10 text-center text-3xl font-bold tracking-tight sm:mb-14 sm:text-4xl lg:mb-16 lg:text-5xl">
-        Use agents like never before
+       What changes, moment to moment
       </h2>
 
       <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:gap-10">

@@ -8,7 +8,7 @@ import Context from '../Builders/Context'
 import CompareLinks from '../how-it-works/CompareLinks'
 import Buildercta from '../Builders/Builderscta'
 import Footer from '../how-it-works/Footer'
-export default function Founders() {
+export default function Builders() {
   return (
     <div className="min-h-screen">
       <Navbar />

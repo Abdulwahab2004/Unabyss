@@ -18,27 +18,24 @@ export default function AIThatKnowsCompany() {
             Use cases
           </p>
 
-          <h2 className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-5xl">
-            AI that knows your company like a co-founder
+          <h2 className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
+          GTM moves daily. Your AI is stuck on the last quarter.
           </h2>
 
-          <p className="mb-8 max-w-md text-white/50 leading-relaxed">
-            You run ChatGPT for some things and Claude for others - neither
-            knows the whole business. Unabyss gives every AI tool you use the
-            same full picture.
-          </p>
+          <p className="mb-8 max-w-md leading-relaxed text-white/50">
+       Your go-to-market moves fast - new positioning, new campaign, a deal that shifted yesterday. Your AI knows none of it, so every draft starts with you catching it up. Unabyss gives every AI tool you use the live picture of what's actually happening across your GTM.  </p>
 
           <a
             href="/register"
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-black transition-transform hover:scale-[1.03]"
           >
-            Onboard it in seconds
+            Connect - free
             <ArrowUpRight size={18} />
           </a>
         </div>
 
-        {/* RIGHT — DEMO */}
+        {/* RIGHT — DEMO CARD */}
         <div className="min-w-0">
           <div
             className="
@@ -60,7 +57,7 @@ export default function AIThatKnowsCompany() {
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage:
-                  "url('https://unabyss.com/_app/immutable/assets/blog-cover-02.CDC1AScy.webp')",
+                  "url('https://unabyss.com/_app/immutable/assets/blog-cover-17.zTy_qbUQ.webp')",
               }}
               aria-hidden="true"
             />
@@ -132,7 +129,7 @@ export default function AIThatKnowsCompany() {
               <Maximize2 size={14} />
             </button>
 
-            {/* SCROLLABLE CHAT AREA */}
+            {/* SCROLLABLE CHAT WRAPPER */}
             <div
               className="
                 absolute
@@ -142,16 +139,22 @@ export default function AIThatKnowsCompany() {
                 z-10
 
                 px-3
-                pb-17
                 pt-16
+                pb-17
 
                 sm:px-5
-                sm:pb-17
                 sm:pt-16
-                hide-scrollbar
+                sm:pb-17
               "
             >
-              <div className="h-full overflow-y-auto hide-scrollbar">
+              <div
+                className="
+                  h-full
+                  overflow-y-auto
+                 hide-scrollbar
+                  pr-0
+                "
+              >
                 {/* CHAT MOCKUP */}
                 <div
                   className="
@@ -200,17 +203,21 @@ export default function AIThatKnowsCompany() {
                     />
                   </div>
 
-                  {/* CHAT CONTENT */}
+                  {/* CHAT CONTENT — SCROLLABLE */}
                   <div
                     className="
-                      space-y-4
+                      max-h-[280px]
+                      overflow-y-auto
+                   hide-scrollbar
 
+                      space-y-4
                       p-3
 
                       text-xs
                       leading-relaxed
                       text-white/70
 
+                      sm:max-h-[340px]
                       sm:p-5
                       sm:text-sm
                     "
@@ -238,7 +245,7 @@ export default function AIThatKnowsCompany() {
                         Sales & GTM
                       </p>
 
-                      <ul className="space-y-1.5">
+                      <ul className="list-none space-y-1.5">
                         <li className="break-words">
                           <span className="font-semibold text-white">
                             AMICA proposal
@@ -318,7 +325,6 @@ export default function AIThatKnowsCompany() {
               <div
                 className="
                   relative
-
                   h-16
                   w-16
 
@@ -337,7 +343,7 @@ export default function AIThatKnowsCompany() {
               >
                 <video
                   ref={videoRef}
-                  src="https://unabyss.com/_app/immutable/assets/founders-a-CEO-report-without-chasing-every-update.CCwGbxFY.webm"
+                  src="https://unabyss.com/_app/immutable/assets/agencies-portfolio-status-across-every-client.BGyBRIie.webm"
                   muted={muted}
                   loop
                   playsInline
@@ -436,10 +442,10 @@ export default function AIThatKnowsCompany() {
                   sm:text-xs
                 "
               >
-                <span className=" xs:inline">Unabyss in</span>
+                <span className=" sm:inline">Unabyss in</span>
 
                 <span className="truncate font-semibold">
-                   Claude
+                  Claude
                 </span>
               </span>
             </div>
@@ -448,15 +454,11 @@ export default function AIThatKnowsCompany() {
           {/* CAPTION */}
           <div className="mt-5 sm:mt-6">
             <h3 className="mb-2 text-base font-bold sm:text-lg">
-              A CEO report without chasing every update
+              Pipeline report without re-briefing the CRM
             </h3>
 
             <p className="text-sm leading-relaxed text-white/50">
-              Ask for what your team did this week, their priorities for next
-              week, and the blockers that need your attention - and AI pulls it
-              straight from your company's context instead of you stitching it
-              together from Slack threads and standups.
-            </p>
+       You used to paste deal notes, Slack threads, and HubSpot exports into a chat just to get a pipeline view. Ask once and Unabyss pulls top deals, risks, bottlenecks, and split actions for sales vs leadership.    </p>
           </div>
         </div>
       </div>

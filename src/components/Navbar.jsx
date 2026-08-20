@@ -22,7 +22,8 @@ export default function Navbar() {
   const [useCasesOpen, setUseCasesOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false)
-  const dropdownRef = useRef(null)
+const dropdownRef = useRef(null)
+const mobileMenuRef = useRef(null)
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 8)
@@ -33,15 +34,28 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setUseCasesOpen(false)
-      }
+ useEffect(() => {
+  function handleClickOutside(e) {
+    const clickedDesktopDropdown =
+      dropdownRef.current?.contains(e.target)
+
+    const clickedMobileMenu =
+      mobileMenuRef.current?.contains(e.target)
+
+    // If click is outside both menus, close everything
+    if (!clickedDesktopDropdown && !clickedMobileMenu) {
+      setUseCasesOpen(false)
+      setMobileOpen(false)
+      setMobileUseCasesOpen(false)
     }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+  }
+
+  document.addEventListener('mousedown', handleClickOutside)
+
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside)
+  }
+}, [])
 
   useEffect(() => {
     function handleEscape(e) {
@@ -220,8 +234,11 @@ export default function Navbar() {
       </nav>
 
       {/* MOBILE MENU PANEL */}
-      {mobileOpen && (
-        <div className="lg:hidden px-5 sm:px-8 pb-5 animate-fade-up">
+     {mobileOpen && (
+  <div
+    ref={mobileMenuRef}
+    className="lg:hidden px-5 sm:px-8 pb-5 animate-fade-up"
+  >
           <div className="rounded-[24px] border border-white/10 bg-[#1d1d1d]/80 backdrop-blur-sm shadow-2xl overflow-hidden">
             <div className="flex flex-col py-2">
               <button
