@@ -152,7 +152,7 @@ export default function AIThatKnowsCompany() {
                 className="
                   h-full
                   overflow-y-auto
-                  scrollbar-hide
+                  hide-scrollbar
                   pr-0
                 "
               >
